@@ -307,6 +307,7 @@ body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 
 <script src="d3.min.js"></script>
 <script src="topojson-client.min.js"></script>
+<script src="photo-catalog.js"></script>
 <script>
 const S='stroke="#2a2622" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
 const icons={
@@ -2102,7 +2103,7 @@ Object.assign(THINK,{
 });
 
 /* Authentic photographs with reusable licences. Each record keeps its attribution beside the image. */
-const PHOTOS={
+const PHOTOS=Object.assign(window.PHOTO_CATALOG||{},{
  kalam:[
   {src:"assets/photos/kalam-portrait.webp",alt:"Portrait of A. P. J. Abdul Kalam",caption:"A. P. J. Abdul Kalam",creator:"Government of India",license:"GODL-India",source:"https://commons.wikimedia.org/wiki/File:A._P._J._Abdul_Kalam.jpg",licenseUrl:"https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf"},
   {src:"assets/photos/kalam-candid.webp",alt:"A. P. J. Abdul Kalam speaking at an event",caption:"Kalam speaking to an audience",creator:"Damith Wickramasinghe",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:A._P._J._Abdul_Kalam_(24207908030).jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"}
@@ -2164,7 +2165,7 @@ const PHOTOS={
  mataric:[
   {src:"assets/photos/mataric-portrait.webp",alt:"Roboticist Maja Matarić speaking during a virtual panel",caption:"Maja Matarić speaking about robotics, 2021",creator:"UCLA Library",license:"CC BY 3.0",source:"https://commons.wikimedia.org/wiki/File:Maja_Matari%C4%87_at_UCLA_Library.jpg",licenseUrl:"https://creativecommons.org/licenses/by/3.0"}
  ]
-};
+});
 const HERO_FACES=["vivekananda","curie","kalam","goodall","mandela","ms","katherine-johnson","herr"];
 Object.assign(THINK,{
  "jrd-tata":{ideas:["Excellence in everything, however small.","Look after the people who work for you.","Build institutions for the nation, not only companies."]},

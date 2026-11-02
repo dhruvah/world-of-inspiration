@@ -1,5 +1,5 @@
-const V='insp-v14';
-const CORE=['./','index.html','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','d3.min.js','topojson-client.min.js',
+const V='insp-v15';
+const CORE=['./','index.html','photo-catalog.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','d3.min.js','topojson-client.min.js',
   'assets/photos/vivekananda-portrait.webp','assets/photos/curie-portrait.webp','assets/photos/kalam-portrait.webp','assets/photos/goodall-portrait.webp',
   'assets/photos/mandela-portrait.webp','assets/photos/ms-subbulakshmi-portrait.webp','assets/photos/katherine-johnson-portrait.webp','assets/photos/herr-portrait.webp',
   'assets/photos/messi-portrait.webp','assets/photos/ronaldo-portrait.webp','assets/photos/google-campus.webp'];
