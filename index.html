@@ -1653,6 +1653,135 @@ P("mataric","Maja Matarić","b. 1965","modern","Engineering & tech","Belgrade to
  [["USC Robotics","Maja Matarić: biography","https://robotics.usc.edu/~maja/bio.html","Her own biography page.","Institution"],W("Maja_Matari%C4%87")],
  null);
 
+/* ---------- batch 6: saints & enlightened beings ---------- */
+const SAINTS="Saints & enlightened beings";
+FIELDS.splice(1,0,SAINTS);
+FIELD_DOT[SAINTS]="#c2410c";
+const SAINT_SLUGS=["rajchandra","gurudevshri","mahavira","tirthankaras","rishabhdev","neminath","parshvanath","buddha","kabir","nanak","ramana","ramakrishna","vivekananda","yogananda","neem-karoli","dada-bhagwan","rumi"];
+people.forEach(p=>{if(SAINT_SLUGS.includes(p.slug))p.field=SAINTS;});
+Object.assign(icons,{
+ bow:`<path d="M16 6 q30 26 0 52" fill="none" ${S} stroke-width="4"/><path d="M16 6 v52" fill="none" stroke="#2a2622" stroke-width="1.5"/><path d="M8 32 h46 l-6 -5 M54 32 l-6 5" fill="none" ${S}/>`,
+ flute:`<path d="M6 46 L56 16" fill="none" stroke="#8f6c43" stroke-width="7" stroke-linecap="round"/><g fill="#2a2622"><circle cx="22" cy="36.5" r="1.8"/><circle cx="29" cy="32.3" r="1.8"/><circle cx="36" cy="28.1" r="1.8"/><circle cx="43" cy="23.9" r="1.8"/></g><path d="M50 8 q4 4 8 2 q-2 6 -8 8z" fill="#3f86ff" ${S}/>`,
+ om:`<circle cx="32" cy="32" r="26" fill="#fffef8" ${S}/><text x="32" y="44" text-anchor="middle" font-family="serif" font-size="34" fill="#c2410c">ॐ</text>`,
+ veena:`<circle cx="18" cy="44" r="12" fill="#e8c27a" ${S}/><path d="M24 38 L54 8" fill="none" stroke="#8f6c43" stroke-width="5" stroke-linecap="round"/><circle cx="50" cy="16" r="6" fill="#e8c27a" ${S}/><path d="M14 46 L50 10" fill="none" stroke="#2a2622" stroke-width="1"/>`,
+ cymbal:`<ellipse cx="22" cy="32" rx="14" ry="6" fill="#ffd166" ${S}/><ellipse cx="42" cy="32" rx="14" ry="6" fill="#ffd166" ${S}/><path d="M22 26 v-8 M42 26 v-8" fill="none" ${S}/><path d="M28 14 q4 -4 8 0" fill="none" stroke="#ef4a3a" stroke-width="2"/>`,
+ cave:`<path d="M4 56 Q10 14 32 10 Q54 14 60 56z" fill="#c7cbd6" ${S}/><path d="M22 56 Q24 34 32 32 Q40 34 42 56z" fill="#2a2622"/><circle cx="32" cy="46" r="4" fill="#ffd166"/>`,
+ dove:`<path d="M10 36 q10 -16 28 -10 l14 -8 -4 12 q4 10 -8 16 q-16 6 -30 -10z" fill="#fffef8" ${S}/><path d="M24 32 q8 -12 18 -12" fill="none" ${S}/><circle cx="46" cy="24" r="1.5" fill="#2a2622"/>`
+});
+
+P("ram","Bhagwan Shri Ram","Treta Yuga (tradition)","past",SAINTS,"Ayodhya · Maryada Purushottam","bow","sun",
+ "Gave up a kingdom in a single morning to keep his father's word, and walked into the forest smiling.",
+ "In Valmiki's Ramayana, Ram is the eldest son of King Dasharatha of Ayodhya, about to be crowned, when his stepmother claims two old boons: that her son rule, and that Ram be exiled for fourteen years. To keep his father's word, Ram leaves at once, with Sita and his brother Lakshman. In the forest Sita is abducted by Ravana; with Hanuman and an army of devoted allies Ram rescues her. Remembered as Maryada Purushottam, the ideal of righteous conduct, his rule, Ramrajya, became a model of just government, an ideal Gandhi often invoked.",
+ ["Accepted fourteen years of exile to honour his father's promise","Hanuman's devotion to him is the model of bhakti","Remembered as Maryada Purushottam, the ideal of righteousness"],
+ ["His Gurus","Sage Vasishtha and Sage Vishvamitra"],"highval",
+ [["Britannica","Rama","https://www.britannica.com/topic/Rama-Hindu-deity","A careful overview of Ram in scripture and devotion.","Reference"],GUT(24869,"The Rámáyan of Válmíki, tr. Ralph T. H. Griffith","Valmiki's epic in a classic English verse translation."),W("Rama")],
+ ["Ramayana, Valmiki","Ramcharitmanas, Tulsidas"]);
+P("krishna","Bhagwan Shri Krishna","Dvapara Yuga (tradition)","past",SAINTS,"Mathura, Vrindavan and Dwarka · teacher of the Gita","flute","sky",
+ "On a battlefield, to a friend who could not fight, he gave the Bhagavad Gita.",
+ "Krishna was born in a prison in Mathura and grew up among cowherds in Vrindavan, where his flute and his play drew everyone's love. Later, as a king of Dwarka, he served as Arjuna's charioteer in the war of the Mahabharata. When Arjuna, seeing his own family on the other side, dropped his bow, Krishna taught him the Bhagavad Gita: act without attachment to the fruits, see the Self in all beings, and surrender to the Divine. In Jain tradition he is the cousin of Bhagwan Neminath.",
+ ["Taught the Bhagavad Gita to Arjuna at Kurukshetra","Childhood in Vrindavan, the heart of bhakti traditions","In Jain tradition, cousin of the 22nd Tirthankara, Neminath"],
+ ["His Guru","Sage Sandipani"],"forhigher",
+ [["Britannica","Krishna","https://www.britannica.com/topic/Krishna-Hindu-deity","A careful overview of Krishna in scripture and devotion.","Reference"],["Britannica","Bhagavad Gita","https://www.britannica.com/topic/Bhagavad-Gita","What the Gita is and why it matters.","Reference"],GUT(2388,"The Song Celestial (Bhagavad Gita), tr. Edwin Arnold","The Gita in a classic English verse translation, the one Gandhi first read."),W("Krishna")],
+ ["Bhagavad Gita","Mahabharata, Vyasa"]);
+P("shankaracharya","Adi Shankaracharya","c. 8th century","past",SAINTS,"Kalady, Kerala · teacher of Advaita Vedanta","om","lilac",
+ "Left home as a boy, walked the length of India, and taught that the Self and Brahman are one.",
+ "Born in Kalady in Kerala, Shankara longed to become a renunciant while still a boy. Tradition says his mother gave permission only when a crocodile seized his leg in the river. He found his Guru, Govinda Bhagavatpada, on the banks of the Narmada. He wrote commentaries on the Upanishads, the Bhagavad Gita and the Brahma Sutras, teaching Advaita, non-duality: the true Self is Brahman, and the world of separation is appearance. He walked across India in debate and teaching and, by tradition, founded monasteries in the four directions before dying young.",
+ ["Teacher of Advaita Vedanta, non-duality","Commentaries on the Upanishads, Gita and Brahma Sutras","By tradition, founded mathas at Sringeri, Dwarka, Puri and Jyotirmath"],
+ ["His Guru","Govinda Bhagavatpada"],"notbody",
+ [["Britannica","Shankara: a summary","https://www.britannica.com/summary/Shankara","A short overview of his life and thought.","Reference"],W("Adi_Shankara")],
+ ["Vivekachudamani, attributed to Shankara","Bhaja Govindam, attributed to Shankara"]);
+P("meerabai","Meerabai","c. 1498–c. 1547","past",SAINTS,"Merta and Chittor to Dwarka · poet-saint of Krishna","veena","blush",
+ "A Rajput princess who sang to Krishna as her only husband, whatever the palace said.",
+ "Meera grew up in Merta in Rajasthan and, by tradition, gave her heart to Krishna as a small child. Married into the royal family of Mewar, she would not give up singing and dancing before Krishna among saints and common people, which the court thought scandalous. Legends say she was sent poison and a snake, and both turned harmless. She left the palace for Vrindavan and finally Dwarka. Her songs of longing and love are still sung across India.",
+ ["Royal birth in Merta, married into Mewar","Left palace life for Vrindavan and Dwarka","Her bhajans are sung all over India"],
+ ["Her beloved","Krishna, whom she called Giridhar Gopal"],"bhakti",
+ [["Poetry Foundation","Mirabai","https://poetryfoundation.org/poets/mirabai","Her life with a selection of poems.","Short read"],W("Meera")],
+ ["Mirabai: Ecstatic Poems, versions by Robert Bly and Jane Hirshfield"]);
+P("banarasidas","Banarasidas","1586–1643","past",SAINTS,"Agra · Jain merchant-poet","quill","sun",
+ "A merchant who wrote the first autobiography in Hindi, honest about his failures, and found the Self in a book.",
+ "Banarasidas was a Jain merchant in Mughal Agra who lost money, fell ill, chased pleasure and wrote love poetry, then threw it into the river. In 1641 he wrote Ardhakathanak, 'Half a Tale', the first autobiography in Hindi, telling his own faults with startling honesty. His life turned when he studied Kundakunda's Samayasara, on the pure, knowing Self. He rendered it into Hindi verse as Samaysar Natak, which is still read, and became a central figure of the Adhyatma movement, which put inner experience of the Self at the heart of Jain practice.",
+ ["Wrote Ardhakathanak (1641), the first autobiography in Hindi","Rendered Kundakunda's Samayasara into Hindi verse: Samaysar Natak","A leading voice of the Jain Adhyatma, inner-path, movement"],
+ ["Who turned him","Acharya Kundakunda, through the Samayasara"],"cocoon",
+ [["The Bangalore Review","Banarasidas's Ardhakathanak","https://bangalorereview.com/2023/05/banarasidass-ardhakathanak/","An essay on the half-told life.","Long read"],W("Banarasidas")],
+ ["Ardhakathanak: Half a Tale, tr. Mukund Lath","Samaysar Natak, Banarasidas"]);
+P("kundakunda","Acharya Kundakunda","early centuries CE","past",SAINTS,"South India · author of the Samayasara","book","mint",
+ "Wrote the Samayasara, on the soul that only knows and is never touched by what it knows.",
+ "Kundakunda is among the most revered teachers of the Digambara Jain tradition, so much so that his name is recalled in the auspicious verse right after Mahavira and his chief disciple. Little is known for certain about his life, and scholars date him anywhere in the early centuries CE. His works, the Samayasara, Pravachanasara and Niyamasara, teach that from the absolute standpoint the soul is pure knowledge and bliss, distinct from body and karma, and that liberation comes from realising this directly. His thought shaped Banarasidas and the later inner-path movements.",
+ ["Author of the Samayasara, Pravachanasara and Niyamasara","Distinguished the absolute and practical viewpoints","Deeply shaped later Jain mystics"],
+ ["What he points to","The pure Self, the knower"],"notbody",
+ [["Britannica","Kundakunda","https://www.britannica.com/biography/Kundakunda","A careful, edited entry.","Reference"],W("Kundakunda")],
+ ["Samayasara, Kundakunda"]);
+P("anandghan","Anandghanji","17th century","past",SAINTS,"Rajasthan and Gujarat · Jain mystic poet","veena","sky",
+ "A wandering monk who sang twenty-four hymns of longing to the Tirthankaras.",
+ "Anandghan, born Labhanand, was a Jain monk who left the comforts of monastic institutions to wander and meditate. He sang his experience in simple, intense songs: the Anandghan Chovisi, twenty-two surviving hymns of a planned twenty-four to the Tirthankaras, and many padas. His verses speak of longing for the Lord within and of a love beyond sect. They are among the most loved Jain devotional songs, and Shrimad Rajchandraji held them dear.",
+ ["Wrote the Anandghan Chovisi, hymns to the Tirthankaras","Chose a wandering, solitary life","His songs are sung across Jain communities today"],
+ ["Who treasured him","Shrimad Rajchandraji, among many seekers"],"bhakti",
+ [["JAINpedia","Anandghan","https://jainpedia.org/themes/principles/sects/svetambara/anandghan","A scholarly introduction from the Institute of Jainology.","Reference"],W("Anandghan")],
+ ["Shri Anandghan Chovisi"]);
+P("tulsidas","Goswami Tulsidas","c. 1532–1623","past",SAINTS,"Varanasi · poet of the Ramcharitmanas","book","coral",
+ "Retold the Ramayana in the people's language, so every home could sing it.",
+ "Tulsidas was a devotee of Ram who lived much of his life in Varanasi. A well-known story says his wife's rebuke, that he should love Ram as much as he loved her, turned him wholly to devotion. Rather than write in Sanskrit, he retold the story of Ram in Awadhi, the language of ordinary people, as the Ramcharitmanas. It became one of the most read and recited works in northern India, and the Hanuman Chalisa is traditionally attributed to him.",
+ ["Wrote the Ramcharitmanas in Awadhi","Lived and taught in Varanasi","The Hanuman Chalisa is traditionally attributed to him"],
+ ["His beloved","Shri Ram"],"bhakti",
+ [["Britannica","Ramcharitmanas","https://www.britannica.com/topic/Ramcharitmanas","What his great work is.","Reference"],W("Tulsidas")],
+ ["Ramcharitmanas, Tulsidas"]);
+P("chaitanya","Chaitanya Mahaprabhu","1486–1534","past",SAINTS,"Nabadwip and Puri · saint of ecstatic devotion","cymbal","sun",
+ "A proud young scholar met a monk at Gaya and came home dancing the name of Krishna.",
+ "Born in Nabadwip in Bengal, Vishvambhar was a brilliant, proud young scholar of logic. On a visit to Gaya he met the ascetic Ishvara Puri, took initiation, and returned transformed, weeping and singing the names of Krishna. He led sankirtan, group singing in the streets, open to all regardless of caste, and spent his later years in Puri. His movement of loving devotion spread across Bengal and Odisha and, centuries later, around the world.",
+ ["Scholar transformed after initiation at Gaya","Spread sankirtan, congregational chanting, open to all","Spent his later years at Puri"],
+ ["His Guru","Ishvara Puri"],"music",
+ [["Britannica","Chaitanya Mahaprabhu","https://www.britannica.com/biography/Chaitanya-Mahaprabhu","A careful, edited biography.","Reference"],W("Chaitanya_Mahaprabhu")],
+ ["Chaitanya Charitamrita, Krishnadasa Kaviraja"]);
+P("tukaram","Sant Tukaram","c. 1608–1649","past",SAINTS,"Dehu, near Pune · Varkari poet-saint","cymbal","mint",
+ "A village grocer ruined by famine sang to Vitthal, and his songs outlived every critic.",
+ "Tukaram ran a small family shop in Dehu. A terrible famine took his first wife and child and his business, and he turned wholly to the Lord Vitthal of Pandharpur. He composed thousands of abhangs, devotional songs, in plain Marathi. Tradition says scholars forced him to sink his notebooks in the Indrayani river, and that after he fasted on the bank, they surfaced again. His songs are still sung by the Varkari pilgrims walking to Pandharpur every year.",
+ ["Composed thousands of abhangs in Marathi","Turned to devotion after losing family and business in famine","His songs are sung on the Pandharpur wari every year"],
+ ["His inspiration","The Varkari saints before him, and Vitthal of Pandharpur"],"music",
+ [W("Tukaram")],
+ ["Says Tuka, tr. Dilip Chitre"]);
+P("jnaneshwar","Sant Dnyaneshwar","1275–1296 (tradition)","past",SAINTS,"Alandi · poet-saint of the Gita in Marathi","book","lilac",
+ "At about sixteen he gave the Gita to ordinary people in their own language.",
+ "Dnyaneshwar and his siblings were outcast as children because their father had returned from monastic life. Guided by his elder brother Nivruttinath as Guru, Dnyaneshwar at about sixteen composed the Dnyaneshwari, a commentary on the Bhagavad Gita in Marathi verse, so that ordinary people could understand it. He also wrote the Amritanubhav. By tradition he entered samadhi at Alandi at about twenty-one. He is the founding saint of the Varkari tradition.",
+ ["Wrote the Dnyaneshwari, the Gita in Marathi, at about sixteen","Wrote the Amritanubhav","Took samadhi at Alandi, by tradition at twenty-one"],
+ ["His Guru","His elder brother, Nivruttinath"],"slow",
+ [["Britannica","Jnanadeva","https://www.britannica.com/biography/Jnanadeva","A careful, edited biography.","Reference"],W("Dnyaneshwar")],
+ ["Dnyaneshwari, Dnyaneshwar"]);
+P("narsinh-mehta","Narsinh Mehta","c. 1414–c. 1481","past",SAINTS,"Junagadh · first poet of Gujarati","cymbal","coral",
+ "Wrote 'Vaishnav Jan To', the song of the true devotee that Gandhi loved most.",
+ "Narsinh Mehta of Junagadh is honoured as the adi kavi, first poet, of Gujarati. A devotee of Krishna, he was mocked for mixing with people of all castes and for his poverty, and many stories tell of help arriving just when he needed it. His bhajan 'Vaishnav Jan To' describes a true devotee as one who feels the pain of others and does good without pride. It became Gandhi's favourite hymn, sung at his prayer meetings.",
+ ["Called the first poet of Gujarati","Wrote 'Vaishnav Jan To'","Mixed with people of every caste, against custom"],
+ ["His beloved","Krishna"],"mine",
+ [W("Narsinh_Mehta")],
+ null);
+P("milarepa","Milarepa","c. 1052–c. 1135","past",SAINTS,"Tibet · yogi and poet","cave","mint",
+ "Once used sorcery to take revenge; his Guru made him build and tear down towers until his pride was gone.",
+ "As a young man, wronged by relatives, Milarepa learned black magic and caused many deaths. Overcome by remorse, he sought the teacher Marpa, who made him build stone towers alone, then tear them down, again and again, before he would teach him. This purified his past and his pride. Milarepa then meditated for years in mountain caves, living on nettles, and became one of Tibet's most beloved saints. His songs are still sung.",
+ ["Turned from revenge to remorse","Trained under the severe teacher Marpa","Meditated for years in Himalayan caves","His songs are classics of Tibetan literature"],
+ ["His Guru","Marpa the Translator"],"subtract",
+ [["Britannica","Milarepa","https://www.britannica.com/biography/Milarepa","A careful, edited biography.","Reference"],W("Milarepa")],
+ ["The Life of Milarepa, Tsangnyön Heruka","The Hundred Thousand Songs of Milarepa"]);
+P("sai-baba","Sai Baba of Shirdi","d. 1918","past",SAINTS,"Shirdi, Maharashtra · fakir and saint","diya","sun",
+ "A fakir in a ruined mosque, revered by Hindus and Muslims alike, who taught that God is one.",
+ "Nobody knows Sai Baba's birth or origins. He arrived as a young man in the village of Shirdi, lived in an old mosque he called Dwarkamai, kept a fire always burning, and begged for his food. He taught with simple words: faith and patience, shraddha and saburi, and that one God is master of all. Hindus and Muslims came to him alike, and after his death in 1918 Shirdi became one of India's great places of pilgrimage.",
+ ["Lived for decades in the Dwarkamai mosque in Shirdi","Taught shraddha and saburi, faith and patience","Revered across Hindu and Muslim communities"],
+ ["What he asked","Shraddha and saburi: faith and patience"],"oneness",
+ [["Britannica","Shirdi Sai Baba","https://www.britannica.com/biography/Shirdi-Sai-Baba","A careful, edited biography.","Reference"],W("Sai_Baba_of_Shirdi")],
+ ["Shri Sai Satcharitra, Hemadpant"]);
+P("aurobindo","Sri Aurobindo","1872–1950","past",SAINTS,"Kolkata to Puducherry · revolutionary turned yogi","lotus","sky",
+ "A revolutionary in a British jail had a vision of the Divine in everything, and became a yogi.",
+ "Aurobindo Ghose was educated in England and became a fiery leader of India's independence movement. Jailed in Alipore in 1908 on suspicion of conspiracy, he spent a year in prison, where, he wrote, he saw the Divine everywhere, in the bars and in the prisoners. Acquitted, he withdrew to Pondicherry in 1910 and devoted his life to yoga. He taught Integral Yoga, the transformation of all of life, and wrote The Life Divine and Savitri.",
+ ["Leader in the independence movement","Spiritual experience in Alipore jail, 1908–09","Settled in Pondicherry in 1910","Wrote The Life Divine and Savitri"],
+ ["His collaborator","Mirra Alfassa, the Mother"],"prism",
+ [["Britannica","Sri Aurobindo","https://www.britannica.com/biography/Sri-Aurobindo","A careful, edited biography.","Reference"],W("Sri_Aurobindo")],
+ ["The Life Divine, Sri Aurobindo","Savitri, Sri Aurobindo"]);
+P("francis","St. Francis of Assisi","1181/82–1226","past",SAINTS,"Assisi, Italy · friar of poverty and peace","dove","blush",
+ "A rich merchant's son handed his father back even his clothes, and called the sun his brother.",
+ "Francis grew up wealthy in Assisi and dreamed of glory as a knight. After illness and war he began to change: he embraced a leper he once would have avoided, and gave away his goods. When his father took him before the bishop, Francis gave back even the clothes he wore. He lived in poverty, cared for the sick and outcast, founded the Franciscan order, and sang of all creation as family in his Canticle of the Creatures.",
+ ["Renounced his inheritance before the bishop of Assisi","Embraced and served lepers","Founded the Franciscan order","Wrote the Canticle of the Creatures"],
+ ["What turned him","An encounter with a leper, and the call to rebuild"],"oneness",
+ [["Britannica","St. Francis of Assisi","https://www.britannica.com/biography/Saint-Francis-of-Assisi","A careful, edited biography.","Reference"],W("Francis_of_Assisi")],
+ ["The Little Flowers of St. Francis"]);
+
 /* order: pinned first, then by field */
 (function(){
   const pin=["rajchandra","gurudevshri"];
@@ -1834,6 +1963,24 @@ Object.assign(THINK,{
  herr:{ideas:["A person is never broken; technology can be.","Turn your own loss into others' freedom.","Join body and machine with respect for both."]},
  mataric:{ideas:["Robots can help through encouragement, not only force.","Design for the people who most need care.","Bring more young people into engineering."]}
 });
+Object.assign(THINK,{
+ ram:{ideas:["Keep your word, whatever it costs.","Duty with dignity, even in exile.","A ruler exists for the happiness of the people."]},
+ krishna:{ideas:["Act, but let go of attachment to the fruits.","See the one Self in all beings.","Surrender to the Divine and do your duty."]},
+ shankaracharya:{ideas:["The Self and Brahman are one.","Discriminate between the real and the passing.","Renunciation and knowledge go together."]},
+ meerabai:{ideas:["Love the Lord without fear of what people say.","Devotion can be sung and danced.","Give up the palace if it stands between you and God."]},
+ banarasidas:{ideas:["Tell the truth about yourself, faults included.","Outer ritual means little without inner experience.","One book, truly understood, can turn a life."]},
+ kundakunda:{ideas:["The soul is pure knowing, untouched by what it knows.","Distinguish the absolute view from the practical view.","Liberation is realising your own nature."]},
+ anandghan:{ideas:["Long for the Lord within.","Truth is beyond sect and quarrel.","Sing what you experience."]},
+ tulsidas:{ideas:["Give scripture to people in their own language.","Love God as deeply as you love anything in this world.","Ram's name is enough."]},
+ chaitanya:{ideas:["Chant the Divine name together, openly.","Devotion is open to every caste.","Humility: be lower than a blade of grass."]},
+ tukaram:{ideas:["Speak God's truth in plain words.","Loss can become the door to devotion.","Walk together: the pilgrimage is the practice."]},
+ jnaneshwar:{ideas:["Bring wisdom to people in their own tongue.","A Guru can be your own brother.","Youth is no barrier to realisation."]},
+ "narsinh-mehta":{ideas:["A true devotee feels the pain of others.","Do good without pride.","Treat every person as your own."]},
+ milarepa:{ideas:["Remorse can become the start of the path.","Obey the Guru, even when it makes no sense yet.","Practise in solitude until realisation comes."]},
+ "sai-baba":{ideas:["Faith and patience: shraddha and saburi.","One God is master of all.","Feed and serve whoever comes."]},
+ aurobindo:{ideas:["All life is yoga.","The Divine is in everything, even a prison.","Transform life rather than flee it."]},
+ francis:{ideas:["Embrace what you once avoided.","Own nothing, and be free.","All creation is your family."]}
+});
 /* ---------- helpers ---------- */
 const app=document.getElementById('app');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -1929,6 +2076,15 @@ const LINEAGE=[
  {t:"Money with a conscience",steps:["graham","buffett"],notes:["Buffett read The Intelligent Investor at nineteen, then studied under Graham at Columbia"]},
  {t:"",steps:["gandhi","birla"],notes:["Birla met Gandhi in 1916 and supported his work for decades"]},
  {t:"",steps:["~Colonel James Anderson","carnegie"],notes:["Opened his library to working boys every Saturday"]},
+ {t:"Saints and their Gurus",steps:["kundakunda","banarasidas"],notes:["Banarasidas rendered his Samayasara into Hindi verse as Samaysar Natak"]},
+ {t:"",steps:["anandghan","rajchandra"],notes:["Shrimad Rajchandraji held his hymns dear"]},
+ {t:"",steps:["~Govinda Bhagavatpada","shankaracharya"],notes:["Found his Guru on the banks of the Narmada"]},
+ {t:"",steps:["krishna","meerabai"],notes:["Her lifelong beloved, Giridhar Gopal"]},
+ {t:"",steps:["ram","tulsidas"],notes:["Retold Ram's story for everyone as the Ramcharitmanas"]},
+ {t:"",steps:["~Ishvara Puri","chaitanya"],notes:["Initiated him at Gaya"]},
+ {t:"",steps:["~Nivruttinath","jnaneshwar"],notes:["His elder brother and Guru"]},
+ {t:"",steps:["~Marpa","milarepa"],notes:["Made him build and tear down towers before teaching him"]},
+ {t:"",steps:["narsinh-mehta","gandhi"],notes:["'Vaishnav Jan To' was Gandhi's favourite hymn"]},
  {t:"Robots for people",steps:["~John McCarthy","raj-reddy","whittaker"],notes:["Reddy did his PhD under McCarthy at Stanford","Reddy founded CMU's Robotics Institute in 1979, home to Whittaker's field robots"]},
  {t:"",steps:["raj-reddy","kanade"],notes:["Kanade joined the CMU robotics community Reddy built, in 1980"]},
  {t:"",steps:["~Rodney Brooks","mataric"],notes:["Her PhD adviser at MIT"]},
@@ -1986,9 +2142,10 @@ const LOC={
  srlc:[20.5,73.22,2000],"akshaya-patra":[13.0,77.55,2000],"jaipur-foot":[26.91,75.79,1975],sewa:[23.02,72.6,1972],goonj:[28.55,77.2,1999],vaswani:[18.52,73.86,1879],
  ramakrishna:[22.65,88.36,1836],yogananda:[26.76,83.37,1893],vinoba:[20.78,78.63,1895],savitribai:[18.53,73.84,1831],faraday:[51.51,-0.14,1791],feynman:[34.14,-118.13,1918],goodall:[-4.67,29.63,1934],jobs:[37.33,-122.03,1955],chawla:[29.69,76.99,1962],"katherine-johnson":[37.03,-76.35,1918],montessori:[41.9,12.5,1870],
  apollo:[29.56,-95.09,1961],pixar:[37.83,-122.29,1986],patagonia:[34.28,-119.29,1973],"polio-india":[28.61,77.21,1994],grameen:[22.47,91.79,1976],sulabh:[25.59,85.14,1970],barefoot:[26.6,74.95,1972],lijjat:[18.95,72.81,1959],dabbawalas:[19.06,72.84,1890],
- tirthankaras:[23.96,86.13,-1004],rishabhdev:[26.8,82.2,-1003],neminath:[21.5,70.53,-1002],parshvanath:[25.28,82.99,-877],"dada-bhagwan":[21.2,72.83,1908],chanakya:[25.61,85.12,-375],ashoka:[25.6,85.16,-304],rajaraja:[10.78,79.13,985],akbar:[27.09,77.66,1542],shivaji:[18.23,73.44,1630],
+ tirthankaras:[23.96,86.13,-1006],rishabhdev:[26.8,82.2,-1005],neminath:[21.5,70.53,-1003],parshvanath:[25.28,82.99,-877],"dada-bhagwan":[21.2,72.83,1908],chanakya:[25.61,85.12,-375],ashoka:[25.6,85.16,-304],rajaraja:[10.78,79.13,985],akbar:[27.09,77.66,1542],shivaji:[18.23,73.44,1630],
  "narayana-murthy":[12.85,77.68,1946],kiran:[12.86,77.64,1953],birla:[28.36,75.6,1894],matsushita:[34.69,135.5,1894],inamori:[35.01,135.77,1932],carnegie:[40.45,-80.01,1835],buffett:[41.26,-95.94,1930],graham:[40.75,-73.99,1894],bogle:[40.1,-75.45,1929],"ht-parekh":[18.96,72.84,1911],
- nivedita:[22.6,88.37,1867],athavale:[18.97,72.81,1920],"margaret-hamilton":[42.36,-71.09,1936],brac:[23.78,90.4,1972],"lifeline-express":[19.0,72.84,1991],whittaker:[40.44,-79.95,1948],"raj-reddy":[40.443,-79.94,1937],kanade:[40.446,-79.946,1945],herr:[42.362,-71.087,1964],mataric:[34.02,-118.29,1965]
+ nivedita:[22.6,88.37,1867],athavale:[18.97,72.81,1920],"margaret-hamilton":[42.36,-71.09,1936],brac:[23.78,90.4,1972],"lifeline-express":[19.0,72.84,1991],whittaker:[40.44,-79.95,1948],"raj-reddy":[40.443,-79.94,1937],kanade:[40.446,-79.946,1945],herr:[42.362,-71.087,1964],mataric:[34.02,-118.29,1965],
+ ram:[26.78,82.19,-1004],krishna:[27.58,77.7,-1002],shankaracharya:[10.17,76.44,700,"c. 8th century"],meerabai:[26.65,74.03,1498,"c. 1498"],banarasidas:[27.18,78.01,1586],kundakunda:[15.11,77.36,200,"early centuries CE"],anandghan:[26.66,74.06,1603,"17th century"],tulsidas:[25.29,83.0,1532,"c. 1532"],chaitanya:[23.41,88.37,1486],tukaram:[18.72,73.76,1608,"c. 1608"],jnaneshwar:[18.68,73.9,1275],"narsinh-mehta":[21.52,70.46,1414,"c. 1414"],milarepa:[28.16,85.98,1052,"c. 1052"],"sai-baba":[19.77,74.48,1838,"19th century"],aurobindo:[11.93,79.83,1872],francis:[43.07,12.62,1181]
 };
 const yearLabel=y=>y<-900?"time immemorial":y<0?`c. ${-y} BCE`:String(y);
 let G=null;
@@ -2004,7 +2161,7 @@ function globePage(){
   const svg=d3.select('#gsvg'), stage=document.querySelector('.gstage');
   const countries=topojson.feature(WORLD,WORLD.objects.countries).features;
   const borders=topojson.mesh(WORLD,WORLD.objects.countries,(a,b)=>a!==b);
-  const pts=people.filter(p=>LOC[p.slug]).map(p=>{const [la,lo,y]=LOC[p.slug];return {p,ll:[lo,la],y}});
+  const pts=people.filter(p=>LOC[p.slug]).map(p=>{const [la,lo,y,lab]=LOC[p.slug];return {p,ll:[lo,la],y,lab}});
   pts.forEach(o=>{let c=countries.find(f=>d3.geoContains(f,o.ll));if(!c){let best=1e9;countries.forEach(f=>{const d=d3.geoDistance(d3.geoCentroid(f),o.ll);if(d<best){best=d;c=f}})}o.c=c&&c.properties.name});
   const byC=d3.group(pts,o=>o.c);
   let W=stage.clientWidth,H=Math.min(W,620),base=Math.min(W,H)/2.15;
@@ -2038,7 +2195,7 @@ function globePage(){
     const ll=d3.geoCentroid(f);rotateTo(ll,Math.max(base,Math.min(base*12,base*95/span)));
     const list=(byC.get(name)||[]).slice().sort((a,b)=>a.y-b.y);
     panel.innerHTML=`<button type="button" class="gback" id="gback">← All countries</button><h2>${esc(name)}</h2><p class="gsub">${list.length} ${list.length===1?'story':'stories'}, oldest first</p>
-      <ol class="gtl">${list.map(o=>`<li><span class="gy">${yearLabel(o.y)}</span><a href="#${o.p.slug}"><b style="background:${FIELD_DOT[o.p.field]}"></b>${esc(o.p.name)}</a><small>${esc(o.p.field)} · ${esc(o.p.years)}</small></li>`).join('')}</ol>`;
+      <ol class="gtl">${list.map(o=>`<li><span class="gy">${o.lab||yearLabel(o.y)}</span><a href="#${o.p.slug}"><b style="background:${FIELD_DOT[o.p.field]}"></b>${esc(o.p.name)}</a><small>${esc(o.p.field)} · ${esc(o.p.years)}</small></li>`).join('')}</ol>`;
     document.getElementById('gback').onclick=worldView;
   }
   const panel=document.getElementById('gpanel');
