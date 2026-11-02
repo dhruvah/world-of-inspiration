@@ -103,8 +103,8 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .tile{display:flex;flex-direction:column;text-decoration:none;border-radius:22px;background:var(--bg);border:1.5px solid var(--line);overflow:hidden;transition:transform .2s,box-shadow .2s;min-width:0}
 .tile:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:0 18px 40px -18px rgba(20,22,31,.35)}
 .tile .art{aspect-ratio:16/10;border:0;border-bottom:2.5px solid #14161f;max-width:100%;position:relative}
-.tile .art.photo{background:#d9d9d9}
-.tile .art.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.04)}
+.tile .art.photo{background:#d9d9d9;overflow:hidden;min-height:0}
+.tile .art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.04)}
 .tile .art.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(20,22,31,.16));pointer-events:none}
 .tile .art.photo .yrs,.tile .art.photo .star{z-index:1}
 .tile .art .yrs{position:absolute;top:10px;right:10px;font-family:var(--hand);font-size:.9rem;background:#fff;color:#14161f;border:2px solid #14161f;border-radius:999px;padding:0 10px}
@@ -2059,6 +2059,18 @@ const PHOTOS={
  kurien:[
   {src:"assets/photos/kurien-portrait.webp",alt:"Portrait of Verghese Kurien receiving a lifetime achievement award in 2009",caption:"Verghese Kurien, 2009",creator:"Government of India",license:"GODL-India",source:"https://commons.wikimedia.org/wiki/File:Verghese_Kurien_in_2009_(cropped).jpg",licenseUrl:"https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf"},
   {src:"assets/photos/kurien-amul-trinity.webp",alt:"Verghese Kurien with Tribhuvandas Patel and H. M. Dalaya",caption:"The Amul trio: Kurien, Tribhuvandas Patel and H. M. Dalaya",creator:"Dalaya family collection",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:2_The-Amul-trinity_Kurien_Shri-TK-Patel_HM_Dalaya.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/4.0"}
+ ],
+ messi:[
+  {src:"assets/photos/messi-portrait.webp",alt:"Lionel Messi playing for Argentina at the 2022 FIFA World Cup",caption:"Lionel Messi at the 2022 World Cup",creator:"Hossein Zohrevand",license:"CC BY 4.0",source:"https://commons.wikimedia.org/wiki/File:Lionel_Messi_WC2022.jpg",licenseUrl:"https://creativecommons.org/licenses/by/4.0"},
+  {src:"assets/photos/messi-celebration.webp",alt:"Lionel Messi celebrating with Argentina supporters during the 2022 World Cup",caption:"Celebrating with Argentina supporters, 2022",creator:"Hossein Zohrevand",license:"CC BY 4.0",source:"https://commons.wikimedia.org/wiki/File:Argentina_vs_mexico_messi_celebra_con_tribuna.jpg",licenseUrl:"https://creativecommons.org/licenses/by/4.0"}
+ ],
+ ronaldo:[
+  {src:"assets/photos/ronaldo-portrait.webp",alt:"Cristiano Ronaldo playing for Portugal at the 2018 FIFA World Cup",caption:"Cristiano Ronaldo at the 2018 World Cup",creator:"Anna Nessi",license:"CC BY-SA 3.0",source:"https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_2018_(cropped).jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/3.0"},
+  {src:"assets/photos/ronaldo-final.webp",alt:"Cristiano Ronaldo after the 2018 UEFA Champions League Final",caption:"After winning the 2018 Champions League final",creator:"Fotografías Archimadrid.es",license:"CC BY-SA 2.0",source:"https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_after_2018_UEFA_Champions_League_Final.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/2.0"}
+ ],
+ google:[
+  {src:"assets/photos/google-campus.webp",alt:"The Google campus in Mountain View, California",caption:"Google's Mountain View campus",creator:"Austin McKinley",license:"CC BY 3.0",source:"https://commons.wikimedia.org/wiki/File:Google_Campus,_Mountain_View,_CA.jpg",licenseUrl:"https://creativecommons.org/licenses/by/3.0"},
+  {src:"assets/photos/google-bikes.webp",alt:"Colorful employee bicycles at Google's Mountain View headquarters",caption:"Employee bicycles at Google headquarters, 2012",creator:"Carol M. Highsmith",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Bikes_that_are_used_by_employees_to_ride_between_buildings._Google_Headquarters,_Mountain_View,_California_LCCN2013630576.tif"}
  ],
  mataric:[
   {src:"assets/photos/mataric-portrait.webp",alt:"Roboticist Maja Matarić speaking during a virtual panel",caption:"Maja Matarić speaking about robotics, 2021",creator:"UCLA Library",license:"CC BY 3.0",source:"https://commons.wikimedia.org/wiki/File:Maja_Matari%C4%87_at_UCLA_Library.jpg",licenseUrl:"https://creativecommons.org/licenses/by/3.0"}
