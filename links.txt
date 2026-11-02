@@ -2,6 +2,7 @@ https://about.google/philosophy
 https://accesstoinsight.org/lib/authors/dhammika/wheel386.html
 https://afb.org/about-afb/history/helen-keller/helen-keller-archive
 https://afb.org/blog/entry/helen-kellers-life-and-impact
+https://amturing.acm.org/award_recipient/reddy_9634208
 https://apjjf.org/?p=19458
 https://ar5iv.labs.arxiv.org/html/0906.3356
 https://aravind.org/our-story/
@@ -16,6 +17,7 @@ https://business.columbia.edu/press-release/cbs-press-releases/legacy-benjamin-g
 https://cdc.gov/mmwr/preview/mmwrhtml/mm6342a2.htm
 https://collections.vam.ac.uk/item/O143132
 https://collections.yadvashem.org/en/righteous/4017433
+https://computerhistory.org/profile/raj-reddy/
 https://dar-al-masnavi.org/about_masnavi.html
 https://dawn.com/news/1269692
 https://en.wikipedia.org/wiki/Abdul_Sattar_Edhi
@@ -32,6 +34,7 @@ https://en.wikipedia.org/wiki/Apollo_program
 https://en.wikipedia.org/wiki/Ashoka
 https://en.wikipedia.org/wiki/Atma_Siddhi
 https://en.wikipedia.org/wiki/Azim_Premji
+https://en.wikipedia.org/wiki/BRAC_(organisation)
 https://en.wikipedia.org/wiki/Baba_Amte
 https://en.wikipedia.org/wiki/Barefoot_College
 https://en.wikipedia.org/wiki/Bell_Labs
@@ -50,6 +53,7 @@ https://en.wikipedia.org/wiki/E._Sreedharan
 https://en.wikipedia.org/wiki/Ela_Bhatt
 https://en.wikipedia.org/wiki/Father_Damien
 https://en.wikipedia.org/wiki/Fatima_Sheikh
+https://en.wikipedia.org/wiki/Fazle_Hasan_Abed
 https://en.wikipedia.org/wiki/Florence_Nightingale
 https://en.wikipedia.org/wiki/G._D._Birla
 https://en.wikipedia.org/wiki/Goonj_(NGO)
@@ -64,6 +68,7 @@ https://en.wikipedia.org/wiki/History_of_Stanford_University
 https://en.wikipedia.org/wiki/History_of_Wikipedia
 https://en.wikipedia.org/wiki/Hokusai
 https://en.wikipedia.org/wiki/Homi_J._Bhabha
+https://en.wikipedia.org/wiki/Hugh_Herr
 https://en.wikipedia.org/wiki/Indian_Space_Research_Organisation
 https://en.wikipedia.org/wiki/Infosys
 https://en.wikipedia.org/wiki/International_Committee_of_the_Red_Cross
@@ -85,6 +90,7 @@ https://en.wikipedia.org/wiki/Kiran_Mazumdar-Shaw
 https://en.wikipedia.org/wiki/Konosuke_Matsushita
 https://en.wikipedia.org/wiki/Laozi
 https://en.wikipedia.org/wiki/Lata_Mangeshkar
+https://en.wikipedia.org/wiki/Lifeline_Express
 https://en.wikipedia.org/wiki/Lionel_Messi
 https://en.wikipedia.org/wiki/List_of_tirthankaras
 https://en.wikipedia.org/wiki/Ludwig_van_Beethoven
@@ -93,7 +99,9 @@ https://en.wikipedia.org/wiki/M._S._Subbulakshmi
 https://en.wikipedia.org/wiki/M._Visvesvaraya
 https://en.wikipedia.org/wiki/Mahatma_Gandhi
 https://en.wikipedia.org/wiki/Mahavira
+https://en.wikipedia.org/wiki/Maja_Matari%C4%87
 https://en.wikipedia.org/wiki/Malala_Yousafzai
+https://en.wikipedia.org/wiki/Margaret_Hamilton_(software_engineer)
 https://en.wikipedia.org/wiki/Maria_Montessori
 https://en.wikipedia.org/wiki/Marie_Curie
 https://en.wikipedia.org/wiki/Martin_Luther_King_Jr.
@@ -110,6 +118,7 @@ https://en.wikipedia.org/wiki/Neminatha
 https://en.wikipedia.org/wiki/Norman_Borlaug
 https://en.wikipedia.org/wiki/Olympic_Games
 https://en.wikipedia.org/wiki/One_Hundred_Views_of_Mount_Fuji
+https://en.wikipedia.org/wiki/Pandurang_Shastri_Athavale
 https://en.wikipedia.org/wiki/Paramahansa_Yogananda
 https://en.wikipedia.org/wiki/Parshvanatha
 https://en.wikipedia.org/wiki/Patagonia,_Inc.
@@ -117,12 +126,14 @@ https://en.wikipedia.org/wiki/Paul_Farmer
 https://en.wikipedia.org/wiki/Pixar
 https://en.wikipedia.org/wiki/Polio_in_India
 https://en.wikipedia.org/wiki/Rabindranath_Tagore
+https://en.wikipedia.org/wiki/Raj_Reddy
 https://en.wikipedia.org/wiki/Rajaraja_I
 https://en.wikipedia.org/wiki/Ram_Dass
 https://en.wikipedia.org/wiki/Ramakant_Achrekar
 https://en.wikipedia.org/wiki/Ramakrishna
 https://en.wikipedia.org/wiki/Ramana_Maharshi
 https://en.wikipedia.org/wiki/Ratan_Tata
+https://en.wikipedia.org/wiki/Red_Whittaker
 https://en.wikipedia.org/wiki/Richard_Feynman
 https://en.wikipedia.org/wiki/Rishabhanatha
 https://en.wikipedia.org/wiki/Roger_Federer
@@ -135,12 +146,14 @@ https://en.wikipedia.org/wiki/Savitribai_Phule
 https://en.wikipedia.org/wiki/Self_Employed_Women%27s_Association
 https://en.wikipedia.org/wiki/Shivaji
 https://en.wikipedia.org/wiki/Shri_Mahila_Griha_Udyog_Lijjat_Papad
+https://en.wikipedia.org/wiki/Sister_Nivedita
 https://en.wikipedia.org/wiki/Soichiro_Honda
 https://en.wikipedia.org/wiki/Srinivasa_Ramanujan
 https://en.wikipedia.org/wiki/Steve_Jobs
 https://en.wikipedia.org/wiki/Sudha_Murty
 https://en.wikipedia.org/wiki/Sulabh_International
 https://en.wikipedia.org/wiki/Swami_Vivekananda
+https://en.wikipedia.org/wiki/Takeo_Kanade
 https://en.wikipedia.org/wiki/Tessy_Thomas
 https://en.wikipedia.org/wiki/Tetsu_Nakamura
 https://en.wikipedia.org/wiki/The_Buddha
@@ -163,6 +176,7 @@ https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view
 https://en.wikipedia.org/wiki/Wright_brothers
 https://en.wikipedia.org/wiki/Yuan_Longping
 https://ethw.org/Frederick_Terman
+https://ethw.org/Oral-History:Red_Whittaker
 https://franpritchett.com/00litlinks/gandhi/part2/printingtext_201_210.html
 https://franpritchett.com/00litlinks/kautilya/index.html
 https://global.espn.com/football/story/_/id/37609629/oral-history-transfer-arranged-20-years-ago
@@ -171,6 +185,7 @@ https://global.morningstar.com/en-gb/funds/index-fund-turns-50-how-jack-bogle-ch
 https://global.toyota/en/company/vision-and-philosophy/production-system/
 https://goonj.org/profile/anshu-gupta/
 https://hbr.org/2008/09/how-pixar-fosters-collective-creativity
+https://hinduismtoday.com/magazine/may-1997/1997-05-athavale-earns-award/
 https://holdings.panasonic/global/corporate/about/history/konosuke-matsushita.html
 https://iranicaonline.org/articles/amir-kosrow-poet
 https://issues.org/br_tenner-3/
@@ -207,8 +222,10 @@ https://rework.withgoogle.com/intl/en/guides/understand-team-effectiveness
 https://rightlivelihood.org/?p=2676
 https://rmaward.asia/?p=2876
 https://rmaward.asia/rmawardees/amte-murlidhar-devidas/
+https://robotics.usc.edu/~maja/bio.html
 https://sacred-texts.com/jai/sbe22/sbe2201.htm
 https://science.nasa.gov/people/katherine-johnson
+https://science.nasa.gov/people/margaret-hamilton/
 https://sierraclub.org/sierra/2012-5-september-october/feature/indias-barefoot-college
 https://sprawiedliwi.org.pl/en/node/17649
 https://sriramakrishna.org/sri-ramakrishna/
@@ -219,6 +236,7 @@ https://stevejobsarchive.com/stories/stay-hungry-stay-foolish
 https://stvp.stanford.edu/videos/creativity-inc-entire-talk
 https://support.khanacademy.org/hc/en-us/articles/202483180
 https://tata.com/newsroom/heritage/appro-jrd-tata-sudha-murthy-tribute
+https://thediplomat.com/2018/12/indias-miracle-train-a-journey-like-none-other
 https://vangoghletters.org
 https://viktorfrankl.org/standard_vitae.html
 https://whc.unesco.org/en/list/250
@@ -226,6 +244,7 @@ https://www.akshayapatra.org/history
 https://www.asme.org/topics-resources/content/soichiro-honda
 https://www.auschwitz.org/en/museum/news/84th-anniversary-of-the-death-of-father-maximilian-kolbe,1785.html
 https://www.berkshirehathaway.com/letters/letters.html
+https://www.brac.net/about-us/our-history/
 https://www.britannica.com/biography/
 https://www.britannica.com/biography/A-P-J-Abdul-Kalam
 https://www.britannica.com/biography/Ada-Lovelace
@@ -255,9 +274,11 @@ https://www.britannica.com/biography/Malala-Yousafzai
 https://www.britannica.com/biography/Maria-Montessori
 https://www.britannica.com/biography/Martin-Luther-King-Jr
 https://www.britannica.com/biography/Muhammad-Ali-boxer
+https://www.britannica.com/biography/Nivedita
 https://www.britannica.com/biography/Paramahansa-Yogananda
 https://www.britannica.com/biography/Parshvanatha
 https://www.britannica.com/biography/Pierre-Baron-de-Coubertin-Father-of-the-Modern-Olympics
+https://www.britannica.com/biography/Raj-Reddy
 https://www.britannica.com/biography/Ramakrishna
 https://www.britannica.com/biography/Richard-Feynman
 https://www.britannica.com/biography/Roger-Federer
@@ -297,6 +318,7 @@ https://www.britannica.com/topic/Engaged-Buddhism
 https://www.britannica.com/topic/Indian-Space-Research-Organisation
 https://www.britannica.com/topic/Rishabhanatha
 https://www.bunkhistory.org/resources/could-you-patent-the-sun-retro-report
+https://www.cmu.edu/news/stories/archives/2016/june/kanade-wins-kyoto-prize.html
 https://www.dadabhagwan.org/
 https://www.davidgodman.org/bhagavans-self-realisation/
 https://www.doctorswithoutborders.org/who-we-are/history/founding
@@ -321,8 +343,10 @@ https://www.iimb.ac.in/imr/previous-issues/Social-Entrepreneur-sep-2006.php
 https://www.isro.gov.in/profile.html
 https://www.jfklibrary.org/learn/about-jfk/historic-speeches/address-at-rice-university-on-the-nations-space-effort
 https://www.jpl.nasa.gov/about/history
+https://www.kyotoprize.org/en/workshop/takeo-kanade/
 https://www.lean.org/lexicon-terms/toyota-production-system/
 https://www.legacy.com/news/yuan-longping-1930-2021-created-hybrid-rice-to-ease-famine
+https://www.media.mit.edu/people/hherr/overview/
 https://www.mkgandhi.org/associates/gdbirla-the-natinalist-businessman.php
 https://www.moneylife.in/article/remembering-ht-parekh-the-man-who-brought-home-loans-to-india/14560.html
 https://www.nasa.gov/wp-content/uploads/2020/09/chawla_kalpana.pdf
@@ -378,6 +402,7 @@ https://www.ted.com/talks/bunker_roy_learning_from_a_barefoot_movement
 https://www.ted.com/talks/jimmy_wales_the_birth_of_wikipedia
 https://www.ted.com/talks/view/id/1090
 https://www.ted.com/talks/view/id/784
+https://www.templetonprize.org/?p=4266
 https://www.thenewsminute.com/article/pamban-kolkata-and-delhi-trail-metroman-e-sreedharans-success-26714
 https://www.undp.org/node/515541
 https://www.who.int/india/news-room/feature-stories/detail/a-push-to-vaccinate-every-child-everywhere-ended-polio-in-india
