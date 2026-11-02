@@ -53,7 +53,7 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .hero-faces{display:flex;justify-content:center;align-items:center;margin:30px auto 8px;padding:8px 30px 18px;max-width:920px;overflow:hidden}
 .hero-face{position:relative;display:block;width:118px;aspect-ratio:4/5;margin:0 -5px;border:6px solid #fff;border-bottom-width:22px;border-radius:8px;background:#fff;box-shadow:0 10px 24px rgba(20,22,31,.18);overflow:hidden;transform:rotate(var(--r));transition:transform .2s;z-index:var(--z)}
 .hero-face:hover{transform:rotate(0) translateY(-8px);z-index:20}
-.hero-face img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.03)}
+.hero-face img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;filter:saturate(.88) contrast(1.03)}
 .hero-face:nth-child(even){margin-top:22px}
 .pillars{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .pill{font-family:var(--display);font-weight:600;font-size:.95rem;padding:7px 14px;border-radius:999px;background:var(--bg-2);border:1.5px solid var(--line)}
@@ -104,7 +104,7 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .tile:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:0 18px 40px -18px rgba(20,22,31,.35)}
 .tile .art{aspect-ratio:16/10;border:0;border-bottom:2.5px solid #14161f;max-width:100%;position:relative}
 .tile .art.photo{background:#d9d9d9;overflow:hidden;min-height:0}
-.tile .art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.04)}
+.tile .art.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;background:#e9e7e1;filter:saturate(.82) contrast(1.04)}
 .tile .art.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(20,22,31,.16));pointer-events:none}
 .tile .art.photo .yrs,.tile .art.photo .star{z-index:1}
 .tile .art .yrs{position:absolute;top:10px;right:10px;font-family:var(--hand);font-size:.9rem;background:#fff;color:#14161f;border:2px solid #14161f;border-radius:999px;padding:0 10px}
@@ -123,7 +123,7 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .band .where{font-family:var(--display);font-weight:600}
 .band.has-photo{grid-template-columns:minmax(210px,330px) 1fr;padding:0;overflow:hidden;align-items:stretch}
 .band.has-photo .portrait{position:relative;min-height:320px;background:#fff;border-right:2.5px solid #14161f}
-.band.has-photo .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.band.has-photo .portrait img{width:100%;height:100%;object-fit:contain;display:block;background:#e9e7e1}
 .band.has-photo .portrait .photo-credit{position:absolute;left:10px;bottom:10px}
 .band.has-photo .bio{padding:34px 34px 34px 0;align-self:center}
 .photo-credit{display:inline-block;font-family:var(--display);font-size:.68rem;line-height:1.25;text-decoration:none;color:#14161f;background:rgba(255,255,255,.92);border:1px solid rgba(20,22,31,.35);border-radius:999px;padding:4px 9px;backdrop-filter:blur(5px)}
@@ -1388,7 +1388,7 @@ P("polio-india","Polio-free India","1994–2014","org","Seva","Every village and
  "In the early 1990s India had a large share of the world's polio cases, and many experts doubted it could ever be stopped in such a crowded country. Under the Pulse Polio programme, rolled out on 2 October 1994, health workers and volunteers gave oral drops to every child under five, going house to house, onto trains and buses, and into migrant settlements, again and again. The last case was recorded on 13 January 2011 in Howrah, West Bengal. On 27 March 2014 WHO certified the South-East Asia region, including India, as polio-free.",
  ["1994: Pulse Polio rolled out, 2 October","2011: last case, Howrah, West Bengal, 13 January","2014: certified polio-free by WHO, 27 March"],
  ["Who made it happen","Government health workers, Rotary, WHO, UNICEF and millions of volunteers"],"slow",
- [["WHO India","A push to vaccinate every child, everywhere, ended polio in India","https://www.who.int/india/news-room/feature-stories/detail/a-push-to-vaccinate-every-child-everywhere-ended-polio-in-india","WHO's account of the campaign and its milestones.","Institution"],["CDC MMWR","Polio-free certification and lessons learned, South-East Asia Region, 2014","https://cdc.gov/mmwr/preview/mmwrhtml/mm6342a2.htm","The scientific report on how it was done.","Journal"],["WHO South-East Asia","Keeping the polio virus at bay","https://www.who.int/southeastasia/activities/maintaining-polio-free-status/keeping-the-polio-virus-at-bay","How the region stays polio-free.","Institution"],W("Polio_in_India")],
+ [["WHO India","A push to vaccinate every child, everywhere, ended polio in India","https://www.who.int/india/news-room/feature-stories/detail/a-push-to-vaccinate-every-child-everywhere-ended-polio-in-india","WHO's account of the campaign and its milestones.","Institution"],["CDC MMWR","Polio-free certification and lessons learned, South-East Asia Region, 2014","https://cdc.gov/mmwr/preview/mmwrhtml/mm6342a2.htm","The scientific report on how it was done.","Journal"],["WHO South-East Asia","Keeping the polio virus at bay","https://www.who.int/southeastasia/activities/maintaining-polio-free-status/keeping-the-polio-virus-at-bay","How the region stays polio-free.","Institution"]],
  null);
 P("grameen","Grameen Bank","founded 1983","org","Seva","Jobra to all of Bangladesh · banking for the poor","house","mint",
  "An economics professor lent $27 to 42 villagers, and found the poor repay.",
@@ -2426,7 +2426,7 @@ function goDeeper(p){
   return `<section class="block"><span class="eyebrow">layers of depth</span><h2>Go deeper</h2>${QC}${parts}</section>`;
 }
 function readCards(links){return `<div class="reads">${links.map(([src,t,u,w,ty])=>`<a class="read" href="${u}" target="_blank" rel="noopener"><span class="src"><span>${esc(src)}</span><span class="ty">${esc(ty||"Read")} ↗</span></span><span class="t">${esc(t)}</span>${w?`<span class="w">${esc(w)}</span>`:''}</a>`).join('')}</div>`}
-function bookList(b){return `<div class="books">${b.map(x=>{const t=Array.isArray(x)?x[0]:x;const u=Array.isArray(x)?x[1]:`https://openlibrary.org/search?q=${encodeURIComponent(x)}`;return `<a class="bk" href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a>`}).join('')}</div>`}
+function bookList(b){return `<div class="books">${b.map(x=>{const t=Array.isArray(x)?x[0]:x;const u=Array.isArray(x)?x[1]:`https://openlibrary.org/search?q=${encodeURIComponent(x)}`;return `<a class="bk" href="${u}" target="_blank" rel="noopener">${esc(t)} ↗</a>`}).join('')}</div><p class="qc">Book links open library searches, official pages, or authorised/public-domain editions. This site does not host the books.</p>`}
 function sideBoxes(p){
   return `<div class="duo">
     ${p.circle?`<div class="box"><div class="k">${esc(p.circle[0])}</div><div class="v">${esc(p.circle[1])}</div></div>`:`<div class="box"><div class="k">Field</div><div class="v">${esc(p.field)} · ${esc(p.years)}</div></div>`}
