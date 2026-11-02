@@ -5,3 +5,7 @@ Bedtime stories for grown-ups: true lives of seekers, scientists, engineers, rul
 Live: https://dhruvah.github.io/world-of-inspiration/
 
 Installable as an app (add to home screen); works offline.
+
+## Photographs
+
+Photographs are limited to public-domain works and images published under compatible Creative Commons or government open-data licences. The creator, licence and original Wikimedia Commons file page are stored in the `PHOTOS` records in `index.html`, displayed beside each image, and collected on the in-app **Photo credits and licences** page.

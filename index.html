@@ -50,6 +50,11 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .hero h1 span{color:var(--tomato)}
 .hero h1 small{display:block;font-size:.34em;line-height:1;margin-bottom:.08em;color:var(--ink-2);letter-spacing:-.01em}
 .hero .lede{max-width:30em;margin:14px auto 0;font-size:1.25rem;color:var(--ink-2)}
+.hero-faces{display:flex;justify-content:center;align-items:center;margin:30px auto 8px;padding:8px 30px 18px;max-width:920px;overflow:hidden}
+.hero-face{position:relative;display:block;width:118px;aspect-ratio:4/5;margin:0 -5px;border:6px solid #fff;border-bottom-width:22px;border-radius:8px;background:#fff;box-shadow:0 10px 24px rgba(20,22,31,.18);overflow:hidden;transform:rotate(var(--r));transition:transform .2s;z-index:var(--z)}
+.hero-face:hover{transform:rotate(0) translateY(-8px);z-index:20}
+.hero-face img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.88) contrast(1.03)}
+.hero-face:nth-child(even){margin-top:22px}
 .pillars{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:22px}
 .pill{font-family:var(--display);font-weight:600;font-size:.95rem;padding:7px 14px;border-radius:999px;background:var(--bg-2);border:1.5px solid var(--line)}
 .pill b{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:7px;vertical-align:1px}
@@ -98,6 +103,10 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .tile{display:flex;flex-direction:column;text-decoration:none;border-radius:22px;background:var(--bg);border:1.5px solid var(--line);overflow:hidden;transition:transform .2s,box-shadow .2s;min-width:0}
 .tile:hover{transform:translateY(-4px) rotate(-.4deg);box-shadow:0 18px 40px -18px rgba(20,22,31,.35)}
 .tile .art{aspect-ratio:16/10;border:0;border-bottom:2.5px solid #14161f;max-width:100%;position:relative}
+.tile .art.photo{background:#d9d9d9}
+.tile .art.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.04)}
+.tile .art.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(20,22,31,.16));pointer-events:none}
+.tile .art.photo .yrs,.tile .art.photo .star{z-index:1}
 .tile .art .yrs{position:absolute;top:10px;right:10px;font-family:var(--hand);font-size:.9rem;background:#fff;color:#14161f;border:2px solid #14161f;border-radius:999px;padding:0 10px}
 .tile .art .star{position:absolute;top:10px;left:10px;font-family:var(--hand);font-weight:700;font-size:.9rem;background:#14161f;color:#fff;border-radius:999px;padding:1px 10px}
 .tile .tx{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
@@ -112,6 +121,24 @@ nav.top .brand i{display:inline-block;width:14px;height:14px;border-radius:50%;b
 .band .meta{font-family:var(--hand);font-size:1.1rem}
 .band h1{font-size:clamp(2.6rem,7vw,5rem);margin:4px 0 6px}
 .band .where{font-family:var(--display);font-weight:600}
+.band.has-photo{grid-template-columns:minmax(210px,330px) 1fr;padding:0;overflow:hidden;align-items:stretch}
+.band.has-photo .portrait{position:relative;min-height:320px;background:#fff;border-right:2.5px solid #14161f}
+.band.has-photo .portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.band.has-photo .portrait .photo-credit{position:absolute;left:10px;bottom:10px}
+.band.has-photo .bio{padding:34px 34px 34px 0;align-self:center}
+.photo-credit{display:inline-block;font-family:var(--display);font-size:.68rem;line-height:1.25;text-decoration:none;color:#14161f;background:rgba(255,255,255,.92);border:1px solid rgba(20,22,31,.35);border-radius:999px;padding:4px 9px;backdrop-filter:blur(5px)}
+.photo-credit:hover{text-decoration:underline}
+.photo-story{margin-top:48px}
+.photo-story h2{font-size:clamp(1.7rem,4vw,2.4rem);margin:4px 0 14px}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.photo-grid.one{grid-template-columns:minmax(0,720px)}
+.story-photo{margin:0;border:1.5px solid var(--line);border-radius:22px;overflow:hidden;background:var(--bg-2)}
+.story-photo img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.story-photo figcaption{padding:12px 14px 14px;font-size:.92rem;line-height:1.35;color:var(--ink-2)}
+.story-photo figcaption span{display:block;color:var(--ink);margin-bottom:4px}
+.photo-credits-list{display:grid;gap:12px;margin-top:24px}
+.photo-credits-list article{border:1.5px solid var(--line);border-radius:16px;padding:14px 16px}
+.photo-credits-list h2{font-size:1.08rem;margin-bottom:3px}.photo-credits-list p{margin:0;color:var(--ink-2);font-size:.95rem}
 .scenebox{border-radius:30px;background:#fbf7ef;border:2.5px solid #14161f;overflow:hidden;margin-top:8px}
 .scene{display:block;width:100%;height:auto;max-width:100%}
 .ptitle{text-align:center;margin-top:28px}
@@ -182,9 +209,11 @@ footer p{margin:6px 0}
   .tonight{grid-template-columns:1fr;text-align:center}.tonight .art{width:180px;margin:0 auto}.btns{justify-content:center}
   .strip{grid-template-columns:repeat(2,1fr)}
   .band{grid-template-columns:1fr;text-align:center}.band .emb{margin:0 auto;width:120px}
+  .band.has-photo{grid-template-columns:1fr}.band.has-photo .portrait{min-height:380px;border-right:0;border-bottom:2.5px solid #14161f}.band.has-photo .bio{padding:26px}
   body{font-size:18px}
 }
-@media (max-width:440px){.strip{grid-template-columns:1fr}.band{padding:22px}}
+@media (max-width:620px){.hero-faces{justify-content:flex-start;overflow-x:auto;padding-inline:22px;scroll-snap-type:x proximity}.hero-face{flex:0 0 96px;scroll-snap-align:center}.photo-grid{grid-template-columns:1fr}}
+@media (max-width:440px){.strip{grid-template-columns:1fr}.band{padding:22px}.band.has-photo{padding:0}.band.has-photo .portrait{min-height:330px}}
 .navr{display:flex;gap:18px;flex-wrap:wrap}
 nav.top .menu{display:none;font:inherit;font-family:var(--display);font-weight:700;border:2px solid var(--ink);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer}
 @media (max-width:440px){nav.top{flex-wrap:nowrap;position:relative}nav.top .menu{display:inline-block}nav.top .navr{display:none;position:absolute;right:0;top:100%;z-index:20;flex-direction:column;gap:2px;background:var(--bg);border:1.5px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 10px 30px rgba(20,22,31,.12);min-width:180px}nav.top.open .navr{display:flex}nav.top .navr a{padding:10px 12px;border-radius:10px}nav.top .navr a:hover{background:var(--bg-2)}}
@@ -272,6 +301,7 @@ body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
   <footer>
     <p class="hand">Two stories a week, for a year. Ask what they went beyond, and who it was for.</p>
     <p>Grounded in a satsang on Verse 135 of the Atmasiddhi Shastra. Stories are short retellings in our own words; follow the links for the full accounts.</p>
+    <p><a href="#photo-credits">Photo credits and licences</a></p>
   </footer>
 </div>
 
@@ -1981,13 +2011,70 @@ Object.assign(THINK,{
  aurobindo:{ideas:["All life is yoga.","The Divine is in everything, even a prison.","Transform life rather than flee it."]},
  francis:{ideas:["Embrace what you once avoided.","Own nothing, and be free.","All creation is your family."]}
 });
+
+/* Authentic photographs with reusable licences. Each record keeps its attribution beside the image. */
+const PHOTOS={
+ kalam:[
+  {src:"assets/photos/kalam-portrait.webp",alt:"Portrait of A. P. J. Abdul Kalam",caption:"A. P. J. Abdul Kalam",creator:"Government of India",license:"GODL-India",source:"https://commons.wikimedia.org/wiki/File:A._P._J._Abdul_Kalam.jpg",licenseUrl:"https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf"},
+  {src:"assets/photos/kalam-candid.webp",alt:"A. P. J. Abdul Kalam speaking at an event",caption:"Kalam speaking to an audience",creator:"Damith Wickramasinghe",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:A._P._J._Abdul_Kalam_(24207908030).jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"}
+ ],
+ vivekananda:[
+  {src:"assets/photos/vivekananda-portrait.webp",alt:"Swami Vivekananda in Chicago in 1893",caption:"The Chicago portrait, 1893",creator:"Thomas Harrison",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Swami_Vivekananda_1893_Scanned_Image.jpg"},
+  {src:"assets/photos/vivekananda-cossipore.webp",alt:"A young Swami Vivekananda at Cossipore in 1886",caption:"At Cossipore, 1886",creator:"Unknown photographer",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Swami_Vivekananda_in_Cossipore_1886.jpg"}
+ ],
+ curie:[
+  {src:"assets/photos/curie-portrait.webp",alt:"Portrait of Marie Curie in the 1920s",caption:"Marie Curie, c. 1920s",creator:"Henri Manuel",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Marie_Curie_c._1920s.jpg"},
+  {src:"assets/photos/curie-lab.webp",alt:"Marie and Pierre Curie working in their laboratory around 1900",caption:"Marie and Pierre Curie in their Paris laboratory, c. 1900",creator:"Unknown photographer",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Maria_Sk%C5%82odowska-Curie_i_Pierre_Curie_w_laboratorium_(1900).jpg"}
+ ],
+ mandela:[
+  {src:"assets/photos/mandela-portrait.webp",alt:"Nelson Mandela in Washington in 1994",caption:"Nelson Mandela, 1994",creator:"Kingkongphoto",license:"CC BY-SA 2.0",source:"https://commons.wikimedia.org/wiki/File:Nelson_Mandela_1994.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/2.0"}
+ ],
+ goodall:[
+  {src:"assets/photos/goodall-portrait.webp",alt:"Portrait of Jane Goodall in 2010",caption:"Jane Goodall in Paris, 2010",creator:"Nicolas Richoffer",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Jane_Goodall_2010.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/4.0"},
+  {src:"assets/photos/goodall-uganda.webp",alt:"Jane Goodall speaking with people during a visit to Uganda in 2022",caption:"Meeting conservation partners in Uganda, 2022",creator:"U.S. Mission Uganda",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:Jane_Goodall_visits_United_States_Mission_Uganda_on_4_April_2022_-_19.jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"}
+ ],
+ "katherine-johnson":[
+  {src:"assets/photos/katherine-johnson-portrait.webp",alt:"Portrait of NASA mathematician Katherine Johnson in 1983",caption:"Katherine Johnson, 1983",creator:"NASA",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Katherine_Johnson_1983_(cropped).jpg"},
+  {src:"assets/photos/katherine-johnson-nasa.webp",alt:"Katherine Johnson working at her desk at NASA in 1966",caption:"At work at NASA, 1966",creator:"NASA",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Katherine_Johnson_at_NASA,_in_1966.jpg"}
+ ],
+ jobs:[
+  {src:"assets/photos/jobs-portrait.webp",alt:"Steve Jobs holding an iPhone in 2010",caption:"Steve Jobs at WWDC, 2010",creator:"Matthew Yohe",license:"CC BY-SA 3.0",source:"https://commons.wikimedia.org/wiki/File:Steve_Jobs_Headshot_2010-CROP.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/3.0"},
+  {src:"assets/photos/jobs-macintosh.webp",alt:"Steve Jobs with the Macintosh computer in January 1984",caption:"With the Macintosh, January 1984",creator:"Bernard Gotfryd, Library of Congress",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Steve_Jobs_and_Macintosh_computer,_January_1984,_by_Bernard_Gotfryd_-_edited.jpg"}
+ ],
+ ms:[
+  {src:"assets/photos/ms-subbulakshmi-portrait.webp",alt:"M. S. Subbulakshmi smiling during a performance",caption:"M. S. Subbulakshmi",creator:"Saregama Carnatic",license:"CC BY 3.0",source:"https://commons.wikimedia.org/wiki/File:M._S._Subbulakshmi_(01).jpg",licenseUrl:"https://creativecommons.org/licenses/by/3.0"},
+  {src:"assets/photos/ms-subbulakshmi-candid.webp",alt:"M. S. Subbulakshmi with T. Sadasivam and Ellis Dungan during a film shoot",caption:"With T. Sadasivam and Ellis Dungan during Shakuntala, 1940",creator:"Royal Talkies",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:T_Sadasivam,_M_S_Subbulakshmi_%26_Ellis_Dungan.jpg"}
+ ],
+ herr:[
+  {src:"assets/photos/herr-portrait.webp",alt:"Portrait of biomechatronics researcher Hugh Herr",caption:"Hugh Herr, 2013",creator:"Joi Ito",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:Hugh_Herr,_2013-crop.jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"},
+  {src:"assets/photos/herr-ballet.webp",alt:"Hugh Herr walking on stage on his bionic legs at TED in 2014",caption:"Demonstrating bionic movement at TED, 2014",creator:"Steve Jurvetson",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:The_Debut_of_Bionic_Ballet_(13480669224)_(2).jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"}
+ ],
+ "margaret-hamilton":[
+  {src:"assets/photos/margaret-hamilton-portrait.webp",alt:"Margaret Hamilton standing beside the Apollo guidance software listings",caption:"With the Apollo guidance software listings, 1969",creator:"MIT Instrumentation Laboratory",license:"Public domain",source:"https://commons.wikimedia.org/wiki/File:Margaret_Hamilton_-_restoration.jpg"}
+ ],
+ maathai:[
+  {src:"assets/photos/maathai-portrait.webp",alt:"Portrait of Wangari Maathai in 2001",caption:"Wangari Maathai, 2001",creator:"Kingkongphoto",license:"CC BY-SA 2.0",source:"https://commons.wikimedia.org/wiki/File:Wangari_Maathai_in_2001.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/2.0"},
+  {src:"assets/photos/maathai-nairobi.webp",alt:"Wangari Maathai smiling at an outdoor gathering in Nairobi",caption:"At a gathering in Nairobi",creator:"Fredrick Onyango",license:"CC BY 2.0",source:"https://commons.wikimedia.org/wiki/File:Wangari_Maathai_in_Nairobi.jpg",licenseUrl:"https://creativecommons.org/licenses/by/2.0"}
+ ],
+ kurien:[
+  {src:"assets/photos/kurien-portrait.webp",alt:"Portrait of Verghese Kurien receiving a lifetime achievement award in 2009",caption:"Verghese Kurien, 2009",creator:"Government of India",license:"GODL-India",source:"https://commons.wikimedia.org/wiki/File:Verghese_Kurien_in_2009_(cropped).jpg",licenseUrl:"https://data.gov.in/sites/default/files/Gazette_Notification_OGDL.pdf"},
+  {src:"assets/photos/kurien-amul-trinity.webp",alt:"Verghese Kurien with Tribhuvandas Patel and H. M. Dalaya",caption:"The Amul trio: Kurien, Tribhuvandas Patel and H. M. Dalaya",creator:"Dalaya family collection",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:2_The-Amul-trinity_Kurien_Shri-TK-Patel_HM_Dalaya.jpg",licenseUrl:"https://creativecommons.org/licenses/by-sa/4.0"}
+ ],
+ mataric:[
+  {src:"assets/photos/mataric-portrait.webp",alt:"Roboticist Maja Matarić speaking during a virtual panel",caption:"Maja Matarić speaking about robotics, 2021",creator:"UCLA Library",license:"CC BY 3.0",source:"https://commons.wikimedia.org/wiki/File:Maja_Matari%C4%87_at_UCLA_Library.jpg",licenseUrl:"https://creativecommons.org/licenses/by/3.0"}
+ ]
+};
+const HERO_FACES=["vivekananda","curie","kalam","goodall","mandela","ms","katherine-johnson","herr"];
 /* ---------- helpers ---------- */
 const app=document.getElementById('app');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let eraF="All",fieldF="All";
 
 
-const art=(p,cls="")=>`<div class="art ${cls}" style="background:${BG[p.color]}"><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>`;
+const art=(p,cls="")=>{const ph=PHOTOS[p.slug]?.[0];return ph?`<div class="art photo ${cls}"><img src="${ph.src}" alt="${esc(ph.alt)}" loading="lazy"></div>`:`<div class="art ${cls}" style="background:${BG[p.color]}"><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>`};
+const creditLink=ph=>`<a class="photo-credit" href="${ph.source}" target="_blank" rel="noopener">${esc(ph.creator)} · ${esc(ph.license)} ↗</a>`;
+function photoGallery(p,start=1){const photos=(PHOTOS[p.slug]||[]).slice(start);if(!photos.length)return'';return `<section class="photo-story"><span class="eyebrow">a life in pictures</span><h2>Beyond the portrait</h2><div class="photo-grid${photos.length===1?' one':''}">${photos.map(ph=>`<figure class="story-photo"><img src="${ph.src}" alt="${esc(ph.alt)}" loading="lazy"><figcaption><span>${esc(ph.caption)}</span>${creditLink(ph)}</figcaption></figure>`).join('')}</div></section>`}
+function photoBand(p){const ph=PHOTOS[p.slug]?.[0];if(!ph)return`<div class="band" style="background:${BG[p.color]}"><div class="emb"><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div><div><div class="meta">${esc(p.field)} · ${esc(p.years)}</div><h1>${esc(p.name)}</h1><div class="where">${esc(p.where)}</div></div></div>`;return`<div class="band has-photo" style="background:${BG[p.color]}"><div class="portrait"><img src="${ph.src}" alt="${esc(ph.alt)}">${creditLink(ph)}</div><div class="bio"><div class="meta">${esc(p.field)} · ${esc(p.years)}</div><h1>${esc(p.name)}</h1><div class="where">${esc(p.where)}</div></div></div>`}
 const SHORT={"vivekananda": [["Britannica", "Vivekananda", "https://www.britannica.com/biography/Vivekananda", "", "Short read"]], "damien": [["Britannica", "St. Damien of Molokai", "https://www.britannica.com/biography/Saint-Damien-of-Molokai", "", "Short read"]], "gandhi": [["Britannica", "Mahatma Gandhi", "https://www.britannica.com/biography/Mahatma-Gandhi", "", "Short read"]], "thich": [["Britannica", "Engaged Buddhism, the movement he named", "https://www.britannica.com/topic/Engaged-Buddhism", "", "Short read"]], "laozi": [["Britannica", "Laozi: a summary", "https://www.britannica.com/summary/Laozi", "", "Short read"]], "yogananda": [["Britannica", "Paramahansa Yogananda", "https://www.britannica.com/biography/Paramahansa-Yogananda", "", "Short read"]], "ashoka": [["Britannica", "Ashoka", "https://www.britannica.com/biography/Ashoka", "", "Short read"]], "nightingale": [["Britannica", "Florence Nightingale", "https://www.britannica.com/biography/Florence-Nightingale", "", "Short read"]], "ramanujan": [["Britannica", "6 interesting facts about Srinivasa Ramanujan", "https://www.britannica.com/story/interesting-facts-about-srinivasa-ramanujan", "", "Short read"], ["Britannica", "Srinivasa Ramanujan", "https://www.britannica.com/biography/Srinivasa-Ramanujan", "", "Short read"]], "jc-bose": [["Britannica", "Jagadish Chandra Bose", "https://www.britannica.com/biography/Jagadish-Chandra-Bose", "", "Short read"]], "sn-bose": [["Britannica", "Satyendra Nath Bose", "https://www.britannica.com/biography/Satyendra-Nath-Bose", "", "Short read"]], "sarabhai": [["Britannica", "Vikram Sarabhai", "https://www.britannica.com/biography/Vikram-Sarabhai", "", "Short read"]], "turing": [["Britannica", "Alan Turing", "https://www.britannica.com/biography/Alan-Turing", "", "Short read"]], "lovelace": [["Britannica", "Ada Lovelace: the first computer programmer", "https://www.britannica.com/story/ada-lovelace-the-first-computer-programmer", "", "Short read"], ["Britannica", "Ada Lovelace", "https://www.britannica.com/biography/Ada-Lovelace", "", "Short read"]], "wright": [["Britannica", "Wright brothers", "https://www.britannica.com/biography/Wright-brothers", "", "Short read"]], "jamsetji": [["Britannica", "Jamsetji Tata", "https://www.britannica.com/money/Jamsetji-Nusserwanji-Tata", "", "Short read"]], "ratan-tata": [["Britannica", "Ratan Tata", "https://www.britannica.com/money/Ratan-Tata", "", "Short read"]], "carnegie": [["Britannica", "Andrew Carnegie", "https://www.britannica.com/money/Andrew-Carnegie", "", "Short read"]], "buffett": [["Britannica", "Warren Buffett", "https://www.britannica.com/money/Warren-Edward-Buffett", "", "Short read"]], "bogle": [["Britannica", "John C. Bogle", "https://www.britannica.com/money/John-Bogle", "", "Short read"]], "premji": [["Britannica", "Azim Premji", "https://www.britannica.com/money/Azim-Premji", "", "Short read"]], "narayana-murthy": [["Britannica", "Narayana Murthy", "https://www.britannica.com/money/Narayana-Murthy", "", "Short read"]], "kiran": [["Britannica", "Kiran Mazumdar-Shaw", "https://www.britannica.com/money/Kiran-Mazumdar-Shaw", "", "Short read"]], "amte": [["Britannica", "Baba Amte", "https://www.britannica.com/biography/Baba-Amte", "", "Short read"]], "mlk": [["Britannica", "Martin Luther King, Jr.", "https://www.britannica.com/biography/Martin-Luther-King-Jr", "", "Short read"], ["Nobel Prize", "Martin Luther King Jr.: facts", "https://www.nobelprize.org/prizes/peace/1964/king/facts/", "", "Short read"]], "malala": [["Britannica", "Malala Yousafzai", "https://www.britannica.com/biography/Malala-Yousafzai", "", "Short read"], ["Nobel Prize", "Malala Yousafzai: facts", "https://www.nobelprize.org/prizes/peace/2014/yousafzai/facts/", "", "Short read"]], "patel": [["Britannica", "Vallabhbhai Patel: a summary", "https://www.britannica.com/summary/Vallabhbhai-Patel", "", "Short read"]], "savitribai": [["Britannica", "Savitribai Phule", "https://www.britannica.com/biography/Savitribai-Phule", "", "Short read"]], "montessori": [["Britannica", "Maria Montessori", "https://www.britannica.com/biography/Maria-Montessori", "", "Short read"]], "maathai": [["Britannica", "Wangari Maathai", "https://www.britannica.com/biography/Wangari-Maathai", "", "Short read"], ["Nobel Prize", "Wangari Maathai: facts", "https://www.nobelprize.org/prizes/peace/2004/maathai/facts/", "", "Short read"]], "khusro": [["Britannica", "Amir Khusrow", "https://www.britannica.com/biography/Amir-Khosrow", "", "Short read"]], "ms": [["Britannica", "M.S. Subbulakshmi", "https://www.britannica.com/biography/M-S-Subbulakshmi", "", "Short read"]], "bismillah": [["Britannica", "Bismillah Khan", "https://www.britannica.com/biography/Bismillah-Khan", "", "Short read"]], "lata": [["Britannica", "Lata Mangeshkar", "https://www.britannica.com/biography/Lata-Mangeshkar", "", "Short read"]], "vangogh": [["Britannica", "Vincent van Gogh", "https://www.britannica.com/biography/Vincent-van-Gogh", "", "Short read"]], "hokusai": [["Britannica", "Hokusai", "https://www.britannica.com/biography/Hokusai", "", "Short read"]], "beethoven": [["Britannica", "Beethoven: approaching deafness", "https://www.britannica.com/biography/Ludwig-van-Beethoven/Approaching-deafness", "", "Short read"], ["Britannica", "Ludwig van Beethoven", "https://www.britannica.com/biography/Ludwig-van-Beethoven", "", "Short read"]], "messi": [["Britannica", "Lionel Messi", "https://www.britannica.com/biography/Lionel-Messi", "", "Short read"]], "ronaldo": [["Britannica", "Cristiano Ronaldo", "https://www.britannica.com/biography/Cristiano-Ronaldo", "", "Short read"]], "tendulkar": [["Britannica", "Sachin Tendulkar", "https://www.britannica.com/biography/Sachin-Tendulkar", "", "Short read"]], "ali": [["Britannica", "Muhammad Ali", "https://www.britannica.com/biography/Muhammad-Ali-boxer", "", "Short read"]], "federer": [["Britannica", "Roger Federer", "https://www.britannica.com/biography/Roger-Federer", "", "Short read"]], "kalam": [["Britannica", "A.P.J. Abdul Kalam", "https://www.britannica.com/biography/A-P-J-Abdul-Kalam", "", "Short read"]], "feynman": [["Britannica", "Richard Feynman", "https://www.britannica.com/biography/Richard-Feynman", "", "Short read"], ["Nobel Prize", "Richard P. Feynman: facts", "https://www.nobelprize.org/prizes/physics/1965/feynman/facts/", "", "Short read"]], "goodall": [["Britannica", "Jane Goodall", "https://www.britannica.com/biography/Jane-Goodall", "", "Short read"]], "jobs": [["Britannica", "Steve Jobs", "https://www.britannica.com/money/Steve-Jobs", "", "Short read"]], "google": [["Britannica", "Google", "https://www.britannica.com/money/Google-Inc", "", "Short read"]], "isro": [["Britannica", "Indian Space Research Organisation", "https://www.britannica.com/topic/Indian-Space-Research-Organisation", "", "Short read"]], "bell-labs": [["Britannica", "Bell Laboratories", "https://www.britannica.com/money/Bell-Laboratories", "", "Short read"]], "apollo": [["Britannica", "Apollo", "https://www.britannica.com/science/Apollo-space-program", "", "Short read"]], "pixar": [["Britannica", "Pixar", "https://www.britannica.com/money/Pixar-Animation-Studios", "", "Short read"]], "grameen": [["Britannica", "Grameen Bank", "https://www.britannica.com/money/Grameen-Bank", "", "Short read"], ["Nobel Prize", "Muhammad Yunus: facts", "https://www.nobelprize.org/prizes/peace/2006/yunus/facts/", "", "Short read"]], "dhawan": [["Britannica", "Satish Dhawan", "https://www.britannica.com/biography/Satish-Dhawan", "", "Short read"]], "ramakrishna": [["Britannica", "Ramakrishna", "https://www.britannica.com/biography/Ramakrishna", "", "Short read"]]};
 
 Object.assign(SHORT,{
@@ -2032,10 +2119,10 @@ function prevNext(p){
 
 /* ---------- browse ---------- */
 let q="";
-const tile=p=>`<a class="tile" href="#${p.slug}">
-      <div class="art" style="background:${BG[p.color]}">${p.featured?'<span class="star">full story</span>':''}<span class="yrs">${esc(p.years)}</span><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>
+const tile=p=>{const ph=PHOTOS[p.slug]?.[0];return`<a class="tile" href="#${p.slug}">
+      <div class="art${ph?' photo':''}" style="background:${BG[p.color]}">${p.featured?'<span class="star">full story</span>':''}<span class="yrs">${esc(p.years)}</span>${ph?`<img src="${ph.src}" alt="" loading="lazy">`:`<svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg>`}</div>
       <div class="tx"><span class="fld"><span style="color:${FIELD_DOT[p.field]}">●</span> ${esc(p.field)}</span><h3>${esc(p.name)}</h3><span class="line">${esc(p.beyond)}</span></div>
-    </a>`;
+    </a>`};
 function homeHash(){const u=new URLSearchParams();if(fieldF!=="All")u.set('field',fieldF);if(eraF!=="All")u.set('era',eraF);if(q.trim())u.set('q',q.trim());const x=u.toString();return '#home'+(x?'?'+x:'')}
 function renderResults(){
   const box=document.getElementById('results'); if(!box) return;
@@ -2228,6 +2315,7 @@ function home(){
     </svg>
     <h1><small>World of</small>Inspiration<span>.</span></h1>
     <p class="lede">Bedtime stories for grown-ups. True lives of seekers, scientists, engineers and people who gave back, the seva that serves millions, and the organizations whose culture lifts thousands. Each with the mentor behind them and the reading to go deeper.</p>
+    <div class="hero-faces" aria-label="Featured lives">${HERO_FACES.map((s,i)=>{const p=people.find(x=>x.slug===s),ph=PHOTOS[s][0];return`<a class="hero-face" href="#${s}" title="${esc(p.name)}" style="--r:${[-6,4,-3,5,-5,3,-4,6][i]}deg;--z:${i+1}"><img src="${ph.src}" alt="${esc(p.name)}" ${i<4?'':'loading="lazy"'}></a>`}).join('')}</div>
     <div class="pillars">${FIELDS.slice(1).map(f=>`<span class="pill"><b style="background:${FIELD_DOT[f]}"></b>${f}</span>`).join('')}</div>
   </section>
 
@@ -2293,7 +2381,7 @@ function kalam(p){
       <p>When children asked what had given him the most joy in forty years of research, he named these two.</p>
     </div>
   </section>
-  ${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}
+  ${photoGallery(p,0)}${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}
     ${readCards([
       ["Current Science, 2015","Obituary of A. P. J. Abdul Kalam, by Roddam Narasimha","https://libjncir.jncasr.ac.in/jspui/bitstream/10572/1970/1/248.pdf","A colleague of fifty years: the veena, the guest-house room, the 1979 failure, and why scientists didn't know what to make of him.","Journal"],
       ["President of India","Kalam in his own words: his happiest moment","https://presidentofindia.nic.in/hi/node/14607","His answer to a schoolgirl's question, about the calipers.","Primary source"],
@@ -2352,18 +2440,21 @@ function rajchandra(p){
 /* ---------- person ---------- */
 function person(p){
   app.innerHTML=`
-  <div class="band" style="background:${BG[p.color]}">
-    <div class="emb"><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>
-    <div><div class="meta">${esc(p.field)} · ${esc(p.years)}</div><h1>${esc(p.name)}</h1><div class="where">${esc(p.where)}</div></div>
-  </div>
+  ${photoBand(p)}
   <p class="beyond">${esc(p.beyond)}</p>
   ${sideBoxes(p)}
   <section class="block"><div class="split">
     <div><span class="eyebrow">the story</span><h2>What happened</h2><div class="prose"><p>${esc(p.story)}</p></div></div>
     <div class="box"><div class="k">Fast facts</div><ul class="facts" style="margin-top:12px">${p.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
   </div></section>
-  ${thinkBlock(p)}${goDeeper(p)}
+  ${photoGallery(p)}${thinkBlock(p)}${goDeeper(p)}
   ${prevNext(p)}`;
+}
+
+function photoCreditsPage(){
+  const rows=Object.entries(PHOTOS).flatMap(([slug,photos])=>{const p=people.find(x=>x.slug===slug);return photos.map(ph=>({p,ph}))});
+  app.innerHTML=`<div class="ptitle"><div class="meta">source · creator · licence</div><h1>Photo credits</h1><div class="where">Every photograph is public domain or published under a reusable licence. Credits stay attached to the image throughout the site.</div></div>
+  <div class="photo-credits-list">${rows.map(({p,ph})=>`<article><h2>${esc(p?.name||ph.caption)} · ${esc(ph.caption)}</h2><p>Photo: ${esc(ph.creator)} · ${ph.licenseUrl?`<a href="${ph.licenseUrl}" target="_blank" rel="noopener">${esc(ph.license)}</a>`:esc(ph.license)} · <a href="${ph.source}" target="_blank" rel="noopener">original file and full terms ↗</a></p></article>`).join('')}</div>`;
 }
 
 
@@ -2431,9 +2522,9 @@ function route(){
   const isHome=!slug||slug==="home";
   if(isHome){const u=new URLSearchParams(raw.split('?')[1]||'');const f=u.get('field'),e=u.get('era');fieldF=f&&FIELDS.includes(f)?f:"All";eraF=e&&["past","modern","org"].includes(e)?e:"All";q=u.get('q')||""}
   const p=people.find(x=>x.slug===slug);
-  if(slug==="year") yearPage(); else if(slug==="lineage") lineagePage(); else if(slug==="globe") globePage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
+  if(slug==="year") yearPage(); else if(slug==="lineage") lineagePage(); else if(slug==="globe") globePage(); else if(slug==="photo-credits") photoCreditsPage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
   if(p) app.insertAdjacentHTML('beforeend',readBar(p));
-  document.title=p?`${p.name} · World of Inspiration`:slug==="year"?"A year of inspiration · World of Inspiration":slug==="lineage"?"Who lit whom · World of Inspiration":slug==="globe"?"The globe · World of Inspiration":"World of Inspiration";
+  document.title=p?`${p.name} · World of Inspiration`:slug==="year"?"A year of inspiration · World of Inspiration":slug==="lineage"?"Who lit whom · World of Inspiration":slug==="globe"?"The globe · World of Inspiration":slug==="photo-credits"?"Photo credits · World of Inspiration":"World of Inspiration";
   wasHome=isHome&&!people.find(x=>x.slug===slug);
   let y=0; if(wasHome){try{y=+sessionStorage.getItem('insp-y')||0}catch(e){}}
   window.scrollTo(0,y);
