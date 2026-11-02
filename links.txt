@@ -67,6 +67,7 @@ https://en.wikipedia.org/wiki/Alan_Turing
 https://en.wikipedia.org/wiki/Albert_Einstein
 https://en.wikipedia.org/wiki/Albert_Schweitzer
 https://en.wikipedia.org/wiki/Amir_Khusrau
+https://en.wikipedia.org/wiki/Anandamayi_Ma
 https://en.wikipedia.org/wiki/Anandghan
 https://en.wikipedia.org/wiki/Andrew_Carnegie
 https://en.wikipedia.org/wiki/Anne_Sullivan
@@ -78,6 +79,7 @@ https://en.wikipedia.org/wiki/BRAC_(organisation)
 https://en.wikipedia.org/wiki/Baba_Amte
 https://en.wikipedia.org/wiki/Banarasidas
 https://en.wikipedia.org/wiki/Barefoot_College
+https://en.wikipedia.org/wiki/Basava
 https://en.wikipedia.org/wiki/Bell_Labs
 https://en.wikipedia.org/wiki/Benjamin_Graham
 https://en.wikipedia.org/wiki/Bill_Gates
@@ -105,10 +107,12 @@ https://en.wikipedia.org/wiki/G._D._Birla
 https://en.wikipedia.org/wiki/Goonj_(NGO)
 https://en.wikipedia.org/wiki/Grace_Hopper
 https://en.wikipedia.org/wiki/Grameen_Bank
+https://en.wikipedia.org/wiki/Guru_Gobind_Singh
 https://en.wikipedia.org/wiki/Guru_Nanak
 https://en.wikipedia.org/wiki/HCLTech
 https://en.wikipedia.org/wiki/Hasmukhbhai_Parekh
 https://en.wikipedia.org/wiki/Helen_Keller
+https://en.wikipedia.org/wiki/Hemachandra
 https://en.wikipedia.org/wiki/Hiravijaya
 https://en.wikipedia.org/wiki/History_of_Google
 https://en.wikipedia.org/wiki/History_of_Stanford_University
@@ -127,6 +131,7 @@ https://en.wikipedia.org/wiki/Jamnalal_Bajaj
 https://en.wikipedia.org/wiki/Jamsetji_Tata
 https://en.wikipedia.org/wiki/Jane_Goodall
 https://en.wikipedia.org/wiki/Jensen_Huang
+https://en.wikipedia.org/wiki/Jesus
 https://en.wikipedia.org/wiki/Jet_Propulsion_Laboratory
 https://en.wikipedia.org/wiki/John_C._Bogle
 https://en.wikipedia.org/wiki/Jonas_Salk
@@ -165,7 +170,9 @@ https://en.wikipedia.org/wiki/Meera
 https://en.wikipedia.org/wiki/Michael_Faraday
 https://en.wikipedia.org/wiki/Milarepa
 https://en.wikipedia.org/wiki/Milkha_Singh
+https://en.wikipedia.org/wiki/Mirra_Alfassa
 https://en.wikipedia.org/wiki/Mother_Teresa
+https://en.wikipedia.org/wiki/Muhammad
 https://en.wikipedia.org/wiki/Muhammad_Ali
 https://en.wikipedia.org/wiki/N._R._Narayana_Murthy
 https://en.wikipedia.org/wiki/Narsinh_Mehta
@@ -192,6 +199,7 @@ https://en.wikipedia.org/wiki/Rama
 https://en.wikipedia.org/wiki/Ramakant_Achrekar
 https://en.wikipedia.org/wiki/Ramakrishna
 https://en.wikipedia.org/wiki/Ramana_Maharshi
+https://en.wikipedia.org/wiki/Ramanuja
 https://en.wikipedia.org/wiki/Ratan_Tata
 https://en.wikipedia.org/wiki/Red_Whittaker
 https://en.wikipedia.org/wiki/Richard_Feynman
@@ -216,6 +224,7 @@ https://en.wikipedia.org/wiki/Srinivasa_Ramanujan
 https://en.wikipedia.org/wiki/Steve_Jobs
 https://en.wikipedia.org/wiki/Sudha_Murty
 https://en.wikipedia.org/wiki/Sulabh_International
+https://en.wikipedia.org/wiki/Surdas
 https://en.wikipedia.org/wiki/Swami_Vivekananda
 https://en.wikipedia.org/wiki/Takeo_Kanade
 https://en.wikipedia.org/wiki/Tessy_Thomas
@@ -241,6 +250,7 @@ https://en.wikipedia.org/wiki/Wangari_Maathai
 https://en.wikipedia.org/wiki/Warren_Buffett
 https://en.wikipedia.org/wiki/Wikipedia:Neutral_point_of_view
 https://en.wikipedia.org/wiki/Wright_brothers
+https://en.wikipedia.org/wiki/Yashovijaya
 https://en.wikipedia.org/wiki/Yuan_Longping
 https://ethw.org/Frederick_Terman
 https://ethw.org/Oral-History:Red_Whittaker
@@ -324,6 +334,7 @@ https://www.britannica.com/biography/Alan-Turing
 https://www.britannica.com/biography/Amir-Khosrow
 https://www.britannica.com/biography/Ashoka
 https://www.britannica.com/biography/Baba-Amte
+https://www.britannica.com/biography/Basava
 https://www.britannica.com/biography/Bill-Bowerman
 https://www.britannica.com/biography/Bismillah-Khan
 https://www.britannica.com/biography/Buddha-founder-of-Buddhism
@@ -331,12 +342,15 @@ https://www.britannica.com/biography/Chaitanya-Mahaprabhu
 https://www.britannica.com/biography/Chanakya
 https://www.britannica.com/biography/Cristiano-Ronaldo
 https://www.britannica.com/biography/Florence-Nightingale
+https://www.britannica.com/biography/Guru-Gobind-Singh
 https://www.britannica.com/biography/Guru-Nanak
 https://www.britannica.com/biography/Hokusai
 https://www.britannica.com/biography/Jagadish-Chandra-Bose
 https://www.britannica.com/biography/Jane-Goodall
+https://www.britannica.com/biography/Jesus
 https://www.britannica.com/biography/Jnanadeva
 https://www.britannica.com/biography/Katalin-Kariko
+https://www.britannica.com/biography/Kumarapala
 https://www.britannica.com/biography/Kundakunda
 https://www.britannica.com/biography/Lata-Mangeshkar
 https://www.britannica.com/biography/Lionel-Messi
@@ -349,6 +363,7 @@ https://www.britannica.com/biography/Malala-Yousafzai
 https://www.britannica.com/biography/Maria-Montessori
 https://www.britannica.com/biography/Martin-Luther-King-Jr
 https://www.britannica.com/biography/Milarepa
+https://www.britannica.com/biography/Muhammad
 https://www.britannica.com/biography/Muhammad-Ali-boxer
 https://www.britannica.com/biography/Nivedita
 https://www.britannica.com/biography/Paramahansa-Yogananda
@@ -356,6 +371,7 @@ https://www.britannica.com/biography/Parshvanatha
 https://www.britannica.com/biography/Pierre-Baron-de-Coubertin-Father-of-the-Modern-Olympics
 https://www.britannica.com/biography/Raj-Reddy
 https://www.britannica.com/biography/Ramakrishna
+https://www.britannica.com/biography/Ramanuja
 https://www.britannica.com/biography/Richard-Feynman
 https://www.britannica.com/biography/Roger-Federer
 https://www.britannica.com/biography/Rumi
@@ -395,6 +411,7 @@ https://www.britannica.com/money/Pixar-Animation-Studios
 https://www.britannica.com/money/Ratan-Tata
 https://www.britannica.com/money/Steve-Jobs
 https://www.britannica.com/money/Warren-Edward-Buffett
+https://www.britannica.com/place/Auroville
 https://www.britannica.com/science/Apollo-space-program
 https://www.britannica.com/story/ada-lovelace-the-first-computer-programmer
 https://www.britannica.com/story/interesting-facts-about-srinivasa-ramanujan
@@ -404,7 +421,9 @@ https://www.britannica.com/summary/Vallabhbhai-Patel
 https://www.britannica.com/topic/Bhagavad-Gita
 https://www.britannica.com/topic/Engaged-Buddhism
 https://www.britannica.com/topic/Indian-Space-Research-Organisation
+https://www.britannica.com/topic/Khalsa
 https://www.britannica.com/topic/Krishna-Hindu-deity
+https://www.britannica.com/topic/Quran
 https://www.britannica.com/topic/Rama-Hindu-deity
 https://www.britannica.com/topic/Ramcharitmanas
 https://www.britannica.com/topic/Rishabhanatha
@@ -425,6 +444,7 @@ https://www.gutenberg.org/ebooks/216
 https://www.gutenberg.org/ebooks/2388
 https://www.gutenberg.org/ebooks/2397
 https://www.gutenberg.org/ebooks/24869
+https://www.gutenberg.org/ebooks/26270
 https://www.gutenberg.org/ebooks/281
 https://www.gutenberg.org/ebooks/39863
 https://www.gutenberg.org/ebooks/6519
