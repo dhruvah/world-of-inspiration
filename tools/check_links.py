@@ -1,0 +1,58 @@
+"""Check every external link listed in links.txt (generated from the site data).
+
+404/410 -> failure (job fails)
+3xx redirect -> warning
+403/406/429, timeouts, other errors -> manual review (a browser may still work)
+"""
+import re, sys, os, urllib.request, urllib.error, socket, concurrent.futures as cf
+
+SKIP = ("fonts.googleapis.com", "fonts.gstatic.com", "cdn.jsdelivr.net", "openlibrary.org/search")
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *a, **k):
+        return None
+
+opener = urllib.request.build_opener(NoRedirect)
+
+def check(url):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "text/html,*/*"})
+    try:
+        with opener.open(req, timeout=25) as r:
+            return url, r.status, ""
+    except urllib.error.HTTPError as e:
+        return url, e.code, e.headers.get("Location", "") or ""
+    except (urllib.error.URLError, socket.timeout, TimeoutError, ConnectionError) as e:
+        return url, None, str(getattr(e, "reason", e))[:120]
+
+def main():
+    src = sys.argv[1] if len(sys.argv) > 1 else "links.txt"
+    text = open(src, encoding="utf-8").read()
+    if src.endswith(".txt"):
+        urls = sorted({l.strip() for l in text.splitlines() if l.strip()})
+    else:
+        urls = sorted({u.rstrip(".,;") for u in re.findall(r"https?://[^\s\"'`<>\\)]+", text)})
+    urls = [u for u in urls if not any(s in u for s in SKIP) and "${" not in u]
+    fail, warn, review = [], [], []
+    with cf.ThreadPoolExecutor(16) as ex:
+        for url, code, note in ex.map(check, urls):
+            if code in (404, 410):
+                fail.append((url, code, note))
+            elif code and 300 <= code < 400:
+                warn.append((url, code, note))
+            elif code is None or code >= 400:
+                review.append((url, code or "error", note))
+    out = [f"## Link check: {len(urls)} links", f"- Failures (404/410): **{len(fail)}**",
+           f"- Redirects (warning): {len(warn)}", f"- Manual review (403/406/429/timeouts): {len(review)}"]
+    for title, rows in (("Failures", fail), ("Redirects", warn), ("Manual review", review)):
+        if rows:
+            out += ["", f"### {title}", "| Code | URL | Note |", "|---|---|---|"]
+            out += [f"| {c} | {u} | {n} |" for u, c, n in rows]
+    report = "\n".join(out)
+    print(report)
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        open(os.environ["GITHUB_STEP_SUMMARY"], "a").write(report + "\n")
+    sys.exit(1 if fail else 0)
+
+if __name__ == "__main__":
+    main()
