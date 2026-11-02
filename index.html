@@ -3009,6 +3009,14 @@ P("derek-redmond","Derek Redmond","b. 1965","modern","Sports","Northampton, Engl
  [W("Derek_Redmond")],
  null);
 
+P("maruti","Maruti Suzuki","founded 1981","org",ORG,"Gurugram · the car that put India on wheels","factory","sky",
+ "A government company and a small Japanese carmaker joined hands, and a family car became something ordinary Indians could own.",
+ "In the early 1980s cars in India were few, old in design and expensive. The government set up Maruti Udyog in 1981 and looked for a foreign partner. Suzuki, a small company then, was eager, and its chief Osamu Suzuki signed the agreement in 1982. On 14 December 1983 Prime Minister Indira Gandhi handed the keys of the first Maruti 800 to Harpal Singh, an Indian Airlines employee, who paid Rs 47,500. Over 1,20,000 people booked one in the first year, against a plan to make 20,000. Managers trained in Japan brought new ways of working: punctuality, quality, and managers and workers sharing the same canteen and uniform. Maruti also helped build a network of Indian parts makers, and grew into India's largest carmaker.",
+ ["Maruti Udyog set up in 1981","Agreement with Suzuki signed in 1982","First Maruti 800 handed over on 14 December 1983","Grew into India's largest carmaker"],
+ ["Who led it","V. Krishnamurthy and R. C. Bhargava, with Osamu Suzuki"],"everyday",
+ [["Autocar India","'No one knew what Maruti 800's launch would lead to': R. C. Bhargava","https://www.autocarindia.com/auto-features/no-one-knew-what-maruti-800s-launch-would-lead-to-rc-bhargava-430104","The chairman remembers the launch, first-hand.","Interview"],W("Maruti_Suzuki"),W("Maruti_800")],
+ ["The Maruti Story, R. C. Bhargava with Seetha"]);
+
 /* merge Spiritual into the first category */
 people.forEach(p=>{if(p.field==="Spiritual")p.field=SAINTS;});
 if(FIELDS.includes("Spiritual"))FIELDS.splice(FIELDS.indexOf("Spiritual"),1);
@@ -3340,6 +3348,7 @@ Object.assign(THINK,{
  "ravi-shankar":{ideas:["Mastery needs years of discipline under a guru.","Tradition can travel without losing its roots.","Music is a path to the divine."]},
  kipchoge:{ideas:["Only the disciplined are free.","Live simply, train together, share the chores.","No human is limited."]},
  "terry-fox":{ideas:["Do it one day, one mile at a time.","Turn your own suffering into hope for others.","Don't give up, even when it's hard."]},
+ maruti:{ideas:["Make it affordable, and make it well.","Respect time: start on time, finish on time.","Managers and workers stand on the same floor."]},
  "jackie-robinson":{ideas:["Courage can mean not hitting back.","Excellence answers prejudice.","A life is important only in its impact on other lives."]}
 });
 /* ---------- helpers ---------- */
@@ -3533,6 +3542,7 @@ const LOC={
  amul:[22.55,72.96,1946],aravind:[9.92,78.13,1976],"ramakrishna-mission":[22.63,88.35,1897],pratham:[19.05,72.88,1995],habitat:[32.07,-84.23,1976],unicef:[40.75,-73.97,1946],"rotary-polio":[42.05,-87.68,1985],"mayo-clinic":[44.02,-92.47,1889],"cern-web":[46.23,6.05,1989],linux:[60.17,24.94,1991],"internet-archive":[37.78,-122.47,1996],"skunk-works":[34.2,-118.36,1943],parc:[37.4,-122.15,1970],mondragon:[43.06,-2.49,1956]
 };
 LINEAGE.push(
+ {t:"",steps:["~Osamu Suzuki","maruti"],notes:["Bet a small company on India in 1982"]},
  {t:"Kriya Yoga's householder line",steps:["~Mahavatar Babaji","lahiri","~Sri Yukteswar","yogananda"],notes:["Initiated Lahiri near Ranikhet in 1861","Sri Yukteswar was Lahiri's disciple","Trained Yogananda, who carried Kriya Yoga west"]},
  {t:"",steps:["~Swami Sivananda","~Tapovan Maharaj","chinmayananda"],notes:["Sivananda gave him sannyas in 1949, then sent him to study","Taught him Vedanta in Uttarkashi"]},
  {t:"",steps:["~Siddharameshwar Maharaj","nisargadatta"],notes:["Told him to hold to the sense 'I am'"]},
@@ -3562,7 +3572,7 @@ Object.assign(LOC,{
  "nandan-nilekani":[12.95,77.62,1955],dyson:[51.6,-2.0,1947],"cj-walker":[39.77,-86.16,1867],roddick:[50.82,-0.14,1942],blakely:[33.75,-84.39,1971],"falguni-nayar":[19.08,72.88,1963],bikhchandani:[28.57,77.32,1963],masiyiwa:[-17.83,31.05,1961],giannini:[37.79,-122.41,1870],kamprad:[56.55,14.14,1926],"estee-lauder":[40.73,-73.79,1908],"rohini-nilekani":[12.93,77.6,1959],"kalpana-saroj":[19.1,72.86,1961],mansukhbhai:[22.82,70.84,2005,"Mitticool, 2005"],muruganantham:[11.0,76.95,1962],"ck-ranganathan":[13.08,80.25,1983,"CavinKare, 1983"],ulukaya:[42.74,-75.3,1972],"bette-graham":[32.78,-96.8,1924],"magatte-wade":[14.72,-17.47,1976,"b. 1970s"],"jan-koum":[37.39,-122.08,1976],chouinard:[34.28,-119.29,1938],"an-wang":[42.42,-71.31,1920],clif:[37.87,-122.27,1990,"Clif Bar, 1990"],
  feeney:[40.73,-74.17,1931],"mackenzie-scott":[47.61,-122.33,1970],"dolly-parton":[35.87,-83.56,1946],"oseola-mccarty":[31.33,-89.29,1908],rosenwald:[41.88,-87.62,1862],"mo-ibrahim":[15.5,32.56,1946],omidyar:[21.31,-157.86,1967],mujica:[-34.9,-56.16,1935],"fred-rogers":[40.44,-79.95,1928],"melinda-french-gates":[47.62,-122.2,1964],kravinsky:[39.95,-75.17,1954],"stan-brock":[35.96,-83.92,1936],sindhutai:[18.52,73.86,1948],"sudha-varghese":[25.6,85.1,1949],payeng:[26.95,94.17,1963],manjhi:[24.8,85.0,1934],winton:[50.08,14.43,1909],sugihara:[54.9,23.89,1900],sendler:[52.23,21.01,1910],korczak:[52.24,20.99,1878],
  "satyajit-ray":[22.57,88.37,1921],"ravi-shankar":[25.32,82.99,1920],"frida-kahlo":[19.36,-99.16,1907],"zakir-hussain":[19.07,72.87,1951],"ar-rahman":[13.07,80.24,1967],nusrat:[31.42,73.08,1948],"bhimsen-joshi":[15.43,75.63,1922],ilaiyaraaja:[9.8,77.3,1943],"yo-yo-ma":[42.37,-71.11,1955],"nina-simone":[35.21,-82.24,1933],"bob-marley":[17.97,-76.79,1945],gangubai:[15.46,75.01,1913],"kishori-amonkar":[19.0,72.83,1932],"ali-farka-toure":[15.93,-3.99,1939],"cesaria-evora":[16.88,-24.98,1941],"rosetta-tharpe":[35.6,-91.26,1915],"florence-price":[34.75,-92.29,1887],"sixto-rodriguez":[42.33,-83.05,1942],"ravi-composer":[19.1,72.85,1926],django:[48.86,2.34,1910],glennie:[57.3,-2.4,1965],fela:[6.52,3.38,1938],
- "dhyan-chand":[25.45,81.85,1905],serena:[33.9,-118.22,1981],kipchoge:[0.2,35.1,1984],"jesse-owens":[41.5,-81.69,1913],"jackie-robinson":[40.68,-73.94,1919],"billie-jean-king":[33.77,-118.19,1943],biles:[29.99,-95.42,1997],"pt-usha":[11.52,75.62,1964],"mithali-raj":[17.39,78.49,1982],bikila:[9.03,38.74,1932],"terry-fox":[47.56,-52.71,1958],zanardi:[44.49,11.34,1966],"wilma-rudolph":[36.53,-87.36,1940],malleswari:[18.3,83.9,1975],"arunima-sinha":[27.99,86.93,1988],"deepa-malik":[28.98,77.02,1970],jhajharia:[28.3,74.95,1981],"hidilyn-diaz":[6.91,122.08,1991],caslavska:[50.09,14.42,1942],"luz-long":[51.34,12.37,1913],ibtihaj:[40.73,-74.27,1985],lauda:[48.21,16.37,1949],"bethany-hamilton":[22.07,-159.5,1990],"muggsy-bogues":[39.29,-76.62,1965],"derek-redmond":[52.24,-0.9,1965]
+ "dhyan-chand":[25.45,81.85,1905],serena:[33.9,-118.22,1981],kipchoge:[0.2,35.1,1984],"jesse-owens":[41.5,-81.69,1913],"jackie-robinson":[40.68,-73.94,1919],"billie-jean-king":[33.77,-118.19,1943],biles:[29.99,-95.42,1997],"pt-usha":[11.52,75.62,1964],"mithali-raj":[17.39,78.49,1982],bikila:[9.03,38.74,1932],"terry-fox":[47.56,-52.71,1958],zanardi:[44.49,11.34,1966],"wilma-rudolph":[36.53,-87.36,1940],malleswari:[18.3,83.9,1975],"arunima-sinha":[27.99,86.93,1988],"deepa-malik":[28.98,77.02,1970],jhajharia:[28.3,74.95,1981],"hidilyn-diaz":[6.91,122.08,1991],caslavska:[50.09,14.42,1942],"luz-long":[51.34,12.37,1913],ibtihaj:[40.73,-74.27,1985],lauda:[48.21,16.37,1949],"bethany-hamilton":[22.07,-159.5,1990],"muggsy-bogues":[39.29,-76.62,1965],"derek-redmond":[52.24,-0.9,1965],maruti:[28.46,77.03,1981]
 });
 
 const yearLabel=y=>y<-900?"time immemorial":y<0?`c. ${-y} BCE`:String(y);
