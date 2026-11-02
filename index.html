@@ -200,6 +200,30 @@ footer p{margin:6px 0}
 .yi input{width:20px;height:20px;margin-top:3px;accent-color:var(--mint);flex:none}
 .yi a{font-family:var(--display);font-weight:700;color:var(--ink);text-decoration:none}.yi a:hover{text-decoration:underline}
 .yi small{display:block;color:var(--ink-2);font-size:.85rem}
+.browse{margin-top:80px;text-align:center}
+.bh{font-size:clamp(2rem,5vw,3.2rem)}
+.search input{width:min(560px,100%);font:inherit;font-size:1.1rem;padding:14px 22px;border-radius:999px;border:2px solid var(--ink);background:#fff;color:var(--ink);margin-top:16px;box-shadow:4px 4px 0 var(--sun)}
+.browse .filterbar{margin:20px 0 8px}
+#results{text-align:left;margin-top:24px}
+.row{margin-top:30px}
+.rowhead{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.rowhead h3{font-size:clamp(1.3rem,3vw,1.8rem);display:flex;align-items:center;gap:10px}
+.rowhead h3 b{width:12px;height:12px;border-radius:50%;display:inline-block;flex:none}
+.rowhead .see{margin-left:auto;font:inherit;font-family:var(--display);font-weight:600;border:0;background:none;color:var(--ink);text-decoration:underline;cursor:pointer;white-space:nowrap}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(230px,260px);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 2px 16px;scrollbar-width:thin}
+.rail .tile{scroll-snap-align:start}
+.count{color:var(--ink-2);text-align:center;margin-bottom:16px}
+@media (max-width:640px){.rail{grid-auto-columns:76vw}}
+.lq{max-width:36em;margin:28px auto 8px;text-align:center;font-style:italic;font-size:1.3rem}.lq cite{display:block;font-style:normal;font-size:.9rem;color:var(--ink-2);margin-top:6px}
+.chain{border:1.5px solid var(--line);border-radius:22px;padding:18px 20px;margin-top:16px;background:#fff}
+.chain h3{font-size:1.15rem;margin-bottom:12px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.node{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border:2px solid #14161f;border-radius:16px;text-decoration:none;color:#14161f;font-family:var(--display);font-weight:700}
+.node svg{width:38px;height:38px;background:#fff;border-radius:10px;border:1.5px solid #14161f;flex:none}
+.node.ghost{background:var(--bg-2);border:2px dashed var(--ink-2);color:var(--ink-2);font-weight:600;padding:12px 14px}
+.arrow{display:flex;flex-direction:column;align-items:center;max-width:220px;text-align:center}
+.arrow span{font-size:1.5rem;line-height:1}.arrow small{color:var(--ink-2);font-size:.88rem;line-height:1.3}
+@media (max-width:640px){.flow{flex-direction:column;align-items:flex-start}.arrow{flex-direction:row;gap:10px;text-align:left;max-width:none;padding-left:14px}.arrow span{transform:rotate(90deg)}}
 @media (prefers-reduced-motion:reduce){.rays,.ticker .track{animation:none}.tile,.read,.btn{transition:none}}
 </style>
 <style>
@@ -211,7 +235,7 @@ body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 
 
 <div class="wrap">
-  <nav class="top"><a class="brand" href="#"><i aria-hidden="true"></i>World of Inspiration</a><span class="navr"><a href="#year">A year</a><a href="#" id="navall">All lives</a></span></nav>
+  <nav class="top"><a class="brand" href="#"><i aria-hidden="true"></i>World of Inspiration</a><span class="navr"><a href="#lineage">Who lit whom</a><a href="#year">A year</a><a href="#" id="navall">All lives</a></span></nav>
   <main id="app"></main>
   <footer>
     <p class="hand">Two stories a week, for a year. Ask what they went beyond, and who it was for.</p>
@@ -1606,6 +1630,83 @@ function prevNext(p){
   return `<div class="pn"><a href="#${a.slug}"><span>← previous</span>${esc(a.name)}</a><a href="#${b.slug}" style="text-align:right"><span>next →</span>${esc(b.name)}</a></div>`;
 }
 
+
+/* ---------- browse ---------- */
+let q="";
+const tile=p=>`<a class="tile" href="#${p.slug}">
+      <div class="art" style="background:${BG[p.color]}">${p.featured?'<span class="star">full story</span>':''}<span class="yrs">${esc(p.years)}</span><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>
+      <div class="tx"><span class="fld"><span style="color:${FIELD_DOT[p.field]}">●</span> ${esc(p.field)}</span><h3>${esc(p.name)}</h3><span class="line">${esc(p.beyond)}</span></div>
+    </a>`;
+function renderResults(){
+  const box=document.getElementById('results'); if(!box) return;
+  const t=q.trim().toLowerCase();
+  const list=people.filter(p=>(fieldF==="All"||p.field===fieldF)&&(eraF==="All"||p.era===eraF)&&(!t||[p.name,p.beyond,p.field,p.where,p.story,(p.circle||[]).join(' ')].join(' ').toLowerCase().includes(t)));
+  if(!list.length){box.innerHTML='<p class="hand" style="text-align:center;font-size:1.2rem;margin-top:32px">No one here yet. Try another word or filter.</p>';return}
+  if(fieldF==="All"&&!t){
+    box.innerHTML=FIELDS.slice(1).map(f=>{const it=list.filter(p=>p.field===f);if(!it.length)return'';
+      return `<section class="row"><div class="rowhead"><h3><b style="background:${FIELD_DOT[f]}"></b>${esc(f)}</h3><span class="hand">${it.length}</span><button type="button" class="see" data-see="${esc(f)}">See all →</button></div><div class="rail">${it.map(tile).join('')}</div></section>`}).join('');
+    box.querySelectorAll('[data-see]').forEach(b=>b.addEventListener('click',()=>{fieldF=b.dataset.see;home();const br=document.getElementById('browse');if(br)br.scrollIntoView()}));
+  } else {
+    box.innerHTML=`<p class="count">${list.length} ${list.length===1?'story':'stories'}</p><div class="shelf">${list.map(tile).join('')}</div>`;
+  }
+}
+
+/* ---------- who lit whom ---------- */
+const LINEAGE=[
+ {t:"The thread of truth",steps:["rajchandra","gandhi","vinoba"],notes:["Gandhi called Him his refuge in moments of spiritual crisis","Vinoba joined Gandhi's ashram in 1916 and became his closest disciple"]},
+ {t:"From Gandhi outward",steps:["gandhi","mlk"],notes:["King studied Gandhi's non-violence and travelled to India in 1959"]},
+ {t:"",steps:["gandhi","patel"],notes:["Patel, once dismissive, joined Gandhi at Kheda in 1918"]},
+ {t:"",steps:["gandhi","sewa"],notes:["Ela Bhatt built SEWA on Gandhian self-reliance"]},
+ {t:"The Guru's Guru",steps:["rajchandra","gurudevshri"],notes:["His words and life inspire Pujya Gurudevshri, who founded Shrimad Rajchandra Mission Dharampur"]},
+ {t:"The ford-makers",steps:["rishabhdev","neminath","parshvanath","mahavira"],notes:["the 1st Tirthankara … the 22nd","the 23rd, about 250 years before Mahavira","the 24th"]},
+ {t:"From Dakshineswar to Bangalore",steps:["ramakrishna","vivekananda","jamsetji"],notes:["Narendranath asked if he had seen God; Ramakrishna said yes","They met on a ship in 1893; the talk helped seed the Indian Institute of Science"]},
+ {t:"Science passes the torch",steps:["~Humphry Davy","faraday","einstein"],notes:["Davy hired the bookbinder's apprentice in 1813","Einstein kept a picture of Faraday on his study wall"]},
+ {t:"India's space story",steps:["raman","sarabhai","kalam"],notes:["Sarabhai did his early cosmic-ray research under Raman in Bangalore","Sarabhai picked young Kalam for India's rocket programme"]},
+ {t:"",steps:["dhawan","kalam"],notes:["Dhawan backed Kalam through the SLV-3 failure and took the blame himself"]},
+ {t:"A teacher's hand",steps:["sullivan","keller"],notes:["Spelled w-a-t-e-r into her palm at the pump, 1887"]},
+ {t:"",steps:["~Jyotirao Phule","savitribai"],notes:["Taught his young wife to read; together they opened a girls' school in 1848"]},
+ {t:"",steps:["~W. W. Schieffelin Claytor","katherine-johnson"],notes:["Designed advanced maths courses just for her"]},
+ {t:"",steps:["~Louis Leakey","goodall"],notes:["Sent a young secretary to Gombe in 1960"]},
+ {t:"",steps:["~Sri Yukteswar","yogananda"],notes:["Trained him for ten years from 1910"]},
+ {t:"A trip to India",steps:["neem-karoli","jobs","pixar"],notes:["Jobs travelled to India in 1974 hoping to meet him","Jobs bought the Lucasfilm graphics group in 1986"]},
+ {t:"Kingmakers and kings",steps:["chanakya","~Chandragupta Maurya","ashoka"],notes:["Trained the young Chandragupta to found the Maurya empire","His grandson Ashoka"]},
+ {t:"",steps:["~Jijabai","shivaji"],notes:["Raised him on stories of dharma"]},
+ {t:"",steps:["~Bairam Khan","akbar"],notes:["Guided the boy emperor from age thirteen"]}
+];
+function node(s){
+  if(s[0]==="~") return `<span class="node ghost"><span>${esc(s.slice(1))}</span></span>`;
+  const p=people.find(x=>x.slug===s); if(!p) return '';
+  return `<a class="node" href="#${p.slug}" style="background:${BG[p.color]}"><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg><span>${esc(p.name)}</span></a>`;
+}
+function lineagePage(){
+  app.innerHTML=`<div class="ptitle"><div class="meta">all great people had a mentor</div><h1>Who lit whom</h1><div class="where">Chains of inspiration running through these stories. Tap anyone to read their story.</div></div>
+  <blockquote class="lq">“${esc(Q.mentor[0])}”<cite>Satsang · ${Q.mentor[1]}</cite></blockquote>
+  ${LINEAGE.map(c=>`<section class="chain">${c.t?`<h3>${esc(c.t)}</h3>`:''}<div class="flow">${c.steps.map((s,i)=>node(s)+(i<c.steps.length-1?`<div class="arrow"><span aria-hidden="true">→</span><small>${esc(c.notes[i]||'')}</small></div>`:'')).join('')}</div></section>`).join('')}
+  <p class="hand" style="text-align:center;margin-top:28px">Dashed names are mentors who don't have their own page yet.</p>`;
+}
+const inLineage=slug=>LINEAGE.some(c=>c.steps.includes(slug));
+
+/* ---------- watch ---------- */
+const VIDEOS={
+ rajchandra:[["Shrimad Rajchandra Mission Dharampur · YouTube","Raj Katha: the story of His life","https://www.youtube.com/@srmd/search?query=Raj%20Katha","On the Mission's official channel.","Video"]],
+ gurudevshri:[["YouTube","Satsang on Verse 135: inspired living",SAT,"The satsang this collection is built on.","Video"],["Shrimad Rajchandra Mission Dharampur · YouTube","Official channel","https://www.youtube.com/@srmd","Satsangs, Raj Katha and more.","Video"]],
+ jobs:[["Steve Jobs Archive","Stay hungry, stay foolish: the 2005 Stanford speech","https://stevejobsarchive.com/stories/stay-hungry-stay-foolish","Watch the full speech, from the archive his family founded.","Video"]],
+ malala:[["Nobel Prize","Nobel Peace Prize lecture, 2014","https://www.nobelprize.org/prizes/peace/2014/yousafzai/lecture/","Her lecture, at seventeen, in full.","Video"]],
+ grameen:[["Nobel Prize","Nobel lecture, Muhammad Yunus, 2006","https://www.nobelprize.org/prizes/peace/2006/yunus/lecture/","The story of the first loans, told by him.","Video"]],
+ "tu-youyou":[["Nobel Prize","Nobel lecture, Tu Youyou, 2015","https://www.nobelprize.org/prizes/medicine/2015/tu/lecture/","How a fourth-century text led to artemisinin.","Video"]],
+ kariko:[["Nobel Prize","Nobel lecture, Katalin Karikó, 2023","https://nobelprize.org/prizes/medicine/2023/kariko/lecture","Decades of persistence with mRNA, in her words.","Video"]],
+ mandela:[["Nobel Prize","The Nobel Peace Prize award ceremony, 1993","https://www.nobelprize.org/ceremonies/the-nobel-peace-prize-award-ceremony-1993/","Mandela and de Klerk in Oslo.","Video"]],
+ barefoot:[["TED","Learning from a barefoot movement, Bunker Roy","https://www.ted.com/talks/bunker_roy_learning_from_a_barefoot_movement","The founder, on trusting the knowledge of the poor.","Video"]],
+ "khan-academy":[["TED","Let's use video to reinvent education, Sal Khan","https://www.ted.com/talks/view/id/1090","How tutoring one cousin became a school for the world.","Video"]],
+ wikipedia:[["TED","The birth of Wikipedia, Jimmy Wales","https://www.ted.com/talks/jimmy_wales_the_birth_of_wikipedia","The co-founder on how volunteers made it work.","Video"]],
+ feynman:[["TED","Physics is fun to imagine, Richard Feynman","https://www.ted.com/talks/view/id/784","Feynman thinking out loud, from the 1983 BBC series Fun to Imagine.","Video"]],
+ pixar:[["Stanford eCorner","Creativity, Inc.: Ed Catmull, entire talk","https://stvp.stanford.edu/videos/creativity-inc-entire-talk","Pixar's co-founder on candour and the Braintrust.","Video"]],
+ goodall:[["TED · YouTube","What separates us from chimpanzees?, Jane Goodall","https://www.youtube.com/watch?v=51z7WRDjOjM","Her TED talk on chimpanzees and us.","Video"]],
+ apollo:[["JFK Library","'We choose to go to the Moon': film of the Rice speech","https://www.jfklibrary.org/learn/about-jfk/historic-speeches/address-at-rice-university-on-the-nations-space-effort","Watch the speech that set the goal.","Video"]],
+ faraday:[["Royal Institution · YouTube","Faraday talks from the Royal Institution","https://www.youtube.com/@TheRoyalInstitution/search?query=Faraday","Films made in the building where Faraday worked.","Video"]]
+};
+function watchBlock(p){const v=VIDEOS[p.slug];if(!v)return '';return `<section class="block"><span class="eyebrow">watch</span><h2>Watch</h2>${readCards(v)}</section>`}
+
 /* ---------- home ---------- */
 function home(){
   const d=Math.floor(Date.now()/864e5), tonight=people[d%people.length];
@@ -1646,16 +1747,19 @@ function home(){
     </div>
   </section>
 
-  <div class="filterbar">
-    ${chips(FIELDS,fieldF,"field","Filter by field",t=>t==="All"?"Everyone":t)}
-    ${chips(["All","past","modern","org"],eraF,"era","Filter by time",t=>t==="All"?"All times":ERAS.find(e=>e.id===t).label)}
-  </div>
-  ${groups.map(g=>`<section class="era"><div class="erahead"><h2>${g.label}</h2><span class="hand">${g.note} · ${g.items.length} ${g.id==='org'?(g.items.length===1?'story':'stories'):(g.items.length===1?'life':'lives')}</span></div><div class="shelf">${g.items.map(p=>`
-    <a class="tile" href="#${p.slug}">
-      <div class="art" style="background:${BG[p.color]}">${p.featured?'<span class="star">full story</span>':''}<span class="yrs">${esc(p.years)}</span><svg viewBox="0 0 64 64" aria-hidden="true">${icons[p.icon]}</svg></div>
-      <div class="tx"><span class="fld"><span style="color:${FIELD_DOT[p.field]}">●</span> ${esc(p.field)}</span><h3>${esc(p.name)}</h3><span class="line">${esc(p.beyond)}</span></div>
-    </a>`).join('')}</div></section>`).join('')||'<p class="hand" style="text-align:center;font-size:1.2rem;margin-top:32px">No one here yet. Try another filter.</p>'}`;
-  app.querySelectorAll('.filters').forEach(f=>f.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(f.dataset.k==="era")eraF=b.dataset.t;else fieldF=b.dataset.t;try{localStorage.setItem('insp-f2',JSON.stringify({eraF,fieldF}))}catch(err){}home();const nb=document.getElementById(b.id);if(nb)nb.focus({preventScroll:true})}));
+  <section class="browse" id="browse">
+    <span class="eyebrow">explore</span><h2 class="bh">${people.length} stories</h2>
+    <div class="search"><input type="search" id="q" placeholder="Search a name, field, place or idea…" value="${esc(q)}" aria-label="Search stories" autocomplete="off"></div>
+    <div class="filterbar">
+      ${chips(FIELDS,fieldF,"field","Filter by field",t=>t==="All"?"Everyone":t)}
+      ${chips(["All","past","modern","org"],eraF,"era","Filter by time",t=>t==="All"?"All times":ERAS.find(e=>e.id===t).label)}
+    </div>
+    <div class="btns" style="justify-content:center"><a class="btn" href="#lineage">Who lit whom →</a><a class="btn ghost" href="#year">The one-year path</a></div>
+    <div id="results"></div>
+  </section>`;
+  renderResults();
+  app.querySelectorAll('.filters').forEach(f=>f.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(f.dataset.k==="era")eraF=b.dataset.t;else fieldF=b.dataset.t;try{localStorage.setItem('insp-f2',JSON.stringify({eraF,fieldF}))}catch(err){}f.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));renderResults()}));
+  const qi=document.getElementById('q'); if(qi) qi.addEventListener('input',()=>{q=qi.value;renderResults()});
   document.getElementById('surprise').addEventListener('click',()=>{location.hash=people[Math.floor(Math.random()*people.length)].slug});
 }
 
@@ -1686,7 +1790,7 @@ function kalam(p){
       <p>When children asked what had given him the most joy in forty years of research, he named these two.</p>
     </div>
   </section>
-  ${thinkBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}
+  ${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}
     ${readCards([
       ["Current Science, 2015","Obituary of A. P. J. Abdul Kalam, by Roddam Narasimha","https://libjncir.jncasr.ac.in/jspui/bitstream/10572/1970/1/248.pdf","A colleague of fifty years: the veena, the guest-house room, the 1979 failure, and why scientists didn't know what to make of him.","Journal"],
       ["President of India","Kalam in his own words: his happiest moment","https://presidentofindia.nic.in/hi/node/14607","His answer to a schoolgirl's question, about the calipers.","Primary source"],
@@ -1727,7 +1831,7 @@ function rajchandra(p){
       </div>
     </div>
   </section>
-  ${thinkBlock(p)}<section class="block"><span class="eyebrow">watch and read</span><h2>Go deeper</h2>${QC}
+  ${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">watch and read</span><h2>Go deeper</h2>${QC}
     ${readCards([
       ["YouTube","Raj Katha series","https://www.youtube.com/playlist?list=PLuCukL6BJnFhfsrYnpKNWK3T2rvbdcVyz","Pujya Gurudevshri's devotional narration of His life, in episodes.","Video"],
       ["YouTube","Satsang on Verse 135","https://youtu.be/8Cp1bDsXCrU","The satsang this site is built on.","Video"],
@@ -1755,7 +1859,7 @@ function person(p){
     <div><span class="eyebrow">the story</span><h2>What happened</h2><div class="prose"><p>${esc(p.story)}</p></div></div>
     <div class="box"><div class="k">Fast facts</div><ul class="facts" style="margin-top:12px">${p.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
   </div></section>
-  ${thinkBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}${readCards(p.links)}
+  ${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}${readCards(p.links)}
     ${p.books?`<h3 style="margin:32px 0 6px;font-size:1.3rem">Books</h3>${bookList(p.books)}`:''}
   </section>
   ${prevNext(p)}`;
@@ -1781,7 +1885,7 @@ function yearPlan(){
 }
 function readBar(p){
   const done=store.get('insp-read',[]).includes(p.slug);
-  return `<div class="readbar"><button type="button" class="btn ${done?'':'ghost'}" data-read="${p.slug}" aria-pressed="${done}">${done?'✓ Read':'Mark as read'}</button><a class="btn ghost" href="#year">The one-year path</a></div>`;
+  return `<div class="readbar"><button type="button" class="btn ${done?'':'ghost'}" data-read="${p.slug}" aria-pressed="${done}">${done?'✓ Read':'Mark as read'}</button><a class="btn ghost" href="#year">The one-year path</a>${inLineage(p.slug)?'<a class="btn ghost" href="#lineage">Who lit whom</a>':''}</div>`;
 }
 function yearPage(){
   const weeks=yearPlan(), read=store.get('insp-read',[]), start=store.get('insp-start',null);
@@ -1821,9 +1925,9 @@ app.addEventListener('click',e=>{
 function route(){
   const slug=location.hash.replace('#','');
   const p=people.find(x=>x.slug===slug);
-  if(slug==="year") yearPage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
+  if(slug==="year") yearPage(); else if(slug==="lineage") lineagePage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
   if(p) app.insertAdjacentHTML('beforeend',readBar(p));
-  document.title=p?`${p.name} · World of Inspiration`:slug==="year"?"A year of inspiration · World of Inspiration":"World of Inspiration";
+  document.title=p?`${p.name} · World of Inspiration`:slug==="year"?"A year of inspiration · World of Inspiration":slug==="lineage"?"Who lit whom · World of Inspiration":"World of Inspiration";
   window.scrollTo(0,0);
 }
 window.addEventListener('hashchange',route);
