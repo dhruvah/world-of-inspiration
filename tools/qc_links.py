@@ -42,7 +42,7 @@ def wiki(urls):
         for i in range(0, len(items), 50):
             chunk = items[i:i + 50]
             q = urllib.parse.urlencode({"action": "query", "format": "json", "formatversion": "2", "redirects": "1",
-                                        "prop": "pageprops", "ppprop": "disambiguation", "titles": "|".join(t for _, t in chunk)})
+                                        "prop": "pageprops|description", "ppprop": "disambiguation", "titles": "|".join(t for _, t in chunk)})
             req = urllib.request.Request(f"https://{host}/w/api.php?{q}", headers={"User-Agent": "world-of-inspiration-link-qc/1.0"})
             data = json.load(urllib.request.urlopen(req, timeout=30))["query"]
             norm = {n["from"]: n["to"] for n in data.get("normalized", [])}
@@ -54,7 +54,7 @@ def wiki(urls):
                 if p.get("missing") or not p: f.append("status 404")
                 if t2 != t1: f.append(f"redirects to '{t2}'")
                 if "pageprops" in p and "disambiguation" in p["pageprops"]: f.append("disambiguation page")
-                out.append((u, 404 if "status 404" in f else 200, u, t2, f))
+                out.append((u, 404 if "status 404" in f else 200, u, t2 + " — " + p.get("description", ""), f))
             time.sleep(1)
     return out
 
