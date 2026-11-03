@@ -313,7 +313,7 @@ body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 
 
 <div class="wrap">
-  <nav class="top"><a class="brand" href="#home"><i aria-hidden="true"></i>World of Inspiration</a><button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="navr">Menu</button><span class="navr" id="navr"><a href="#globe">Globe</a><a href="#watch">Watch</a><a href="#lineage">Who lit whom</a><a href="#year">A year</a><a href="#home" id="navall">All lives</a></span></nav>
+  <nav class="top"><a class="brand" href="#home"><i aria-hidden="true"></i>World of Inspiration</a><button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="navr">Menu</button><span class="navr" id="navr"><a href="#globe">Globe</a><a href="#lineage">Who lit whom</a><a href="#year">A year</a><a href="#home" id="navall">All lives</a></span></nav>
   <main id="app"></main>
   <footer>
     <p class="hand">Two stories a week, for a year. Ask what they went beyond, and who it was for.</p>
@@ -3491,12 +3491,13 @@ function goDeeper(p){
   const isW=l=>/wikipedia\.org/.test(l[2]);
   const quick=[...sh,...L.filter(l=>["Reference","Institution","Short read"].includes(l[4])&&!isW(l))];
   const own=L.filter(l=>["Primary source","Book excerpt"].includes(l[4]));
-  const watch=[...(VIDEOS[p.slug]||[]),...L.filter(l=>["Video","Documentary","Audio"].includes(l[4]))];
+  const watch=watchItems(p);
   const long=[...shLong,...L.filter(l=>["Long read","Journal","Scholarly"].includes(l[4])),...L.filter(isW)];
   const used=new Set([...quick,...own,...watch,...long]);const rest=L.filter(l=>!used.has(l));long.push(...rest);
-  const tier=(n,k,h,d,items)=>items.length?`<div class="tier"><div class="tierhead"><span class="tn">${n}</span><div><h3>${h}</h3><p>${d}</p></div></div>${k==='books'?bookList(items):readCards(items)}</div>`:'';
+  const tier=(n,k,h,d,items)=>items.length?`<div class="tier"><div class="tierhead"><span class="tn">${n}</span><div><h3>${h}</h3><p>${d}</p></div></div>${k==='books'?bookList(items):k==='w'?`<div class="vids">${items.map(l=>vidCard(l)).join('')}</div>`:readCards(items)}</div>`:'';
   let n=0;const parts=[
     quick.length&&tier(++n,'q','5-minute reads','Start here. Short, careful pieces from trusted publishers.',quick),
+    watch.length&&tier(++n,'w','Watch &amp; listen','Talks, lectures and films, from official channels.',watch),
     own.length&&tier(++n,'o','In their own words','Books, speeches and letters they wrote themselves.',own),
     long.length&&tier(++n,'l','Long reads','Journals, essays and full biographies, for an evening.',long),
     p.books&&p.books.length&&tier(++n,'books','Books','To live with for a while.',p.books)
@@ -3653,9 +3654,10 @@ function ytId(u){const m=String(u).match(/(?:youtu\.be\/|youtube\.com\/watch\?v=
 function isArtifact(){try{return typeof PHOTOS_REPO!=="undefined"}catch(e){return true}}
 function watchItems(p){const seen=new Set();let v=[...(VIDEOS[p.slug]||[]),...(p.links||[]).filter(l=>["Video","Documentary","Audio"].includes(l[4]))].filter(l=>!seen.has(l[2])&&seen.add(l[2]));const key=l=>l[1].toLowerCase().replace(/[^a-z0-9]/g,"");const yt=new Set(v.filter(l=>ytId(l[2])).map(key));return v.filter(l=>ytId(l[2])||!yt.has(key(l)))}
 function vidCard(l,who){const [src,t,u,w]=l;const id=ytId(u);const art=isArtifact();
-  const frame=id&&!art?`<button type="button" class="frame" data-yt="${id}" aria-label="Play: ${esc(t)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button>`
+  const frame=id&&!art?`<button type="button" class="frame" data-yt="${id}" aria-label="Play: ${esc(t)}"><img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()"><span class="play"></span></button>`
     :`<a class="frame noimg" href="${u}" target="_blank" rel="noopener">${id?'▶ Watch on YouTube':'▶ Watch'}</a>`;
   return `<div class="vid">${frame}<div class="vt">${who?`<a href="#${who.slug}">${esc(who.name)}</a>`:''}<span class="src">${esc(src)}</span><b>${esc(t)}</b>${w?`<span class="w">${esc(w)}</span>`:''}<a href="${u}" target="_blank" rel="noopener">Open on ${id?'YouTube':'the source site'} ↗</a></div></div>`}
+function watchInner(p){const v=watchItems(p);if(!v.length)return '';return `<div class="tier"><div class="tierhead"><div><h3>Watch &amp; listen</h3><p>Talks, lectures and films, from official channels.</p></div></div><div class="vids">${v.map(l=>vidCard(l)).join('')}</div></div>`}
 function watchBlock(p){const v=watchItems(p);if(!v.length)return '';return `<section class="block watch"><span class="eyebrow">watch &amp; listen</span><h2>Watch</h2><div class="vids">${v.map(l=>vidCard(l)).join('')}</div></section>`}
 document.addEventListener('click',e=>{const b=e.target.closest('button.frame[data-yt]');if(!b)return;const f=document.createElement('iframe');f.src=`https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';f.allowFullscreen=true;f.title='Video';b.replaceWith(f)});
 function watchPage(){
@@ -3883,7 +3885,7 @@ function kalam(p){
       <p>When children asked what had given him the most joy in forty years of research, he named these two.</p>
     </div>
   </section>
-  ${photoGallery(p,0)}${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}
+  ${photoGallery(p,0)}${thinkBlock(p)}<section class="block"><span class="eyebrow">deeper reads</span><h2>Go deeper</h2>${QC}${watchInner(p)}
     ${readCards([
       ["Current Science, 2015","Obituary of A. P. J. Abdul Kalam, by Roddam Narasimha","https://libjncir.jncasr.ac.in/jspui/bitstream/10572/1970/1/248.pdf","A colleague of fifty years: the veena, the guest-house room, the 1979 failure, and why scientists didn't know what to make of him.","Journal"],
       ["President of India","Kalam in his own words: his happiest moment","https://presidentofindia.nic.in/hi/node/14607","His answer to a schoolgirl's question, about the calipers.","Primary source"],
@@ -3924,7 +3926,7 @@ function rajchandra(p){
       </div>
     </div>
   </section>
-  ${thinkBlock(p)}${watchBlock(p)}<section class="block"><span class="eyebrow">watch and read</span><h2>Go deeper</h2>${QC}
+  ${thinkBlock(p)}<section class="block"><span class="eyebrow">watch and read</span><h2>Go deeper</h2>${QC}${watchInner(p)}
     ${readCards([
       ["YouTube","Raj Katha series","https://www.youtube.com/playlist?list=PLuCukL6BJnFhfsrYnpKNWK3T2rvbdcVyz","Pujya Gurudevshri's devotional narration of His life, in episodes.","Video"],
       ["YouTube","Satsang on Verse 135","https://youtu.be/8Cp1bDsXCrU","The satsang this site is built on.","Video"],
@@ -3949,7 +3951,7 @@ function person(p){
     <div><span class="eyebrow">the story</span><h2>What happened</h2><div class="prose"><p>${esc(p.story)}</p></div></div>
     <div class="box"><div class="k">Fast facts</div><ul class="facts" style="margin-top:12px">${p.facts.map(f=>`<li>${esc(f)}</li>`).join('')}</ul></div>
   </div></section>
-  ${watchBlock(p)}${photoGallery(p)}${thinkBlock(p)}${goDeeper(p)}
+  ${photoGallery(p)}${thinkBlock(p)}${goDeeper(p)}
   ${prevNext(p)}`;
 }
 
@@ -4024,7 +4026,7 @@ function route(){
   const isHome=!slug||slug==="home";
   if(isHome){const u=new URLSearchParams(raw.split('?')[1]||'');const f=u.get('field'),e=u.get('era');fieldF=f&&FIELDS.includes(f)?f:"All";eraF=e&&["past","modern","org"].includes(e)?e:"All";q=u.get('q')||""}
   const p=people.find(x=>x.slug===slug);
-  if(slug==="year") yearPage(); else if(slug==="watch") watchPage(); else if(slug==="lineage") lineagePage(); else if(slug==="globe") globePage(); else if(slug==="photo-credits") photoCreditsPage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
+  if(slug==="year") yearPage(); else if(slug==="lineage") lineagePage(); else if(slug==="globe") globePage(); else if(slug==="photo-credits") photoCreditsPage(); else if(!p) home(); else if(p.slug==="kalam") kalam(p); else if(p.slug==="rajchandra") rajchandra(p); else person(p);
   if(p) app.insertAdjacentHTML('beforeend',readBar(p));
   document.title=p?`${p.name} · World of Inspiration`:slug==="year"?"A year of inspiration · World of Inspiration":slug==="lineage"?"Who lit whom · World of Inspiration":slug==="globe"?"The globe · World of Inspiration":slug==="watch"?"Watch & listen · World of Inspiration":slug==="photo-credits"?"Photo credits · World of Inspiration":"World of Inspiration";
   wasHome=isHome&&!people.find(x=>x.slug===slug);
