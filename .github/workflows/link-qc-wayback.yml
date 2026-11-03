@@ -1,0 +1,13 @@
+name: Link QC (archive check for blocked sites)
+on:
+  workflow_dispatch:
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python tools/qc_wayback.py tools/qc_blocked_urls.txt
