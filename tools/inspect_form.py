@@ -11,3 +11,9 @@ if m:
     for q in data[1][1]:
         if q[4]:
             print("FORMINFO question", repr(q[1]), "entry", q[4][0][0], "type", q[3])
+if len(sys.argv) > 2 and sys.argv[2]:
+    import urllib.parse
+    post = final.split("/viewform")[0] + "/formResponse"
+    body = urllib.parse.urlencode({sys.argv[3]: sys.argv[2]}).encode()
+    r = urllib.request.urlopen(urllib.request.Request(post, data=body, headers={"User-Agent": "Mozilla/5.0"}), timeout=30)
+    print("FORMINFO test submit status", r.status)

@@ -4,9 +4,15 @@ on:
     inputs:
       url:
         required: true
+      test:
+        required: false
+        default: ""
+      entry:
+        required: false
+        default: ""
 jobs:
   run:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: python3 tools/inspect_form.py "${{ inputs.url }}"
+      - run: python3 tools/inspect_form.py "${{ inputs.url }}" "${{ inputs.test }}" "${{ inputs.entry }}"

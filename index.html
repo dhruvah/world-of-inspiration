@@ -171,6 +171,10 @@ section.block{padding-top:52px}
 .tl li{display:grid;grid-template-columns:72px 1fr;gap:16px;padding:12px 0;border-top:1.5px solid var(--line)}
 .tl .yr{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--tomato);font-variant-numeric:tabular-nums}
 
+.fb{max-width:720px;margin:56px auto 0;padding:22px 24px;border:1.5px solid var(--line);border-radius:20px;background:var(--bg);display:flex;flex-direction:column;gap:10px}
+.fb label{display:flex;flex-direction:column;gap:4px}.fb label span{color:var(--ink-2);font-size:.95rem}
+.fb textarea{width:100%;box-sizing:border-box;font:inherit;font-size:1rem;padding:12px 14px;border-radius:14px;border:1.5px solid var(--line);resize:vertical;background:#fff;color:var(--ink)}
+.fb .fbrow{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.fbmsg{color:var(--ink-2)}
 .vids{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .vid{border:1.5px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg);display:flex;flex-direction:column}
 .vid .frame{position:relative;aspect-ratio:16/9;background:#14161f;display:block;border:0;padding:0;width:100%;cursor:pointer}
@@ -315,6 +319,11 @@ body{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset
 <div class="wrap">
   <nav class="top"><a class="brand" href="#home"><i aria-hidden="true"></i>World of Inspiration</a><button type="button" class="menu" id="menubtn" aria-expanded="false" aria-controls="navr">Menu</button><span class="navr" id="navr"><a href="#globe">Globe</a><a href="#lineage">Who lit whom</a><a href="#year">A year</a><a href="#home" id="navall">All lives</a></span></nav>
   <main id="app"></main>
+  <form class="fb" id="fb" autocomplete="off">
+    <label for="fbtext"><b>Suggestions &amp; feedback</b><span>Someone we should add, a link that's broken, an idea? Tell us.</span></label>
+    <textarea id="fbtext" name="fb" rows="3" maxlength="2000" required placeholder="Type here…"></textarea>
+    <div class="fbrow"><button type="submit" class="btn">Send</button><span class="fbmsg" id="fbmsg" role="status"></span></div>
+  </form>
   <footer>
     <p class="hand">Two stories a week, for a year. Ask what they went beyond, and who it was for.</p>
     <p>Grounded in a satsang on Verse 135 of the Atmasiddhi Shastra. Stories are short retellings in our own words; follow the links for the full accounts.</p>
@@ -4033,6 +4042,13 @@ function route(){
   let y=0; if(wasHome){try{y=+sessionStorage.getItem('insp-y')||0}catch(e){}}
   window.scrollTo(0,y);
 }
+const FB_URL="https://docs.google.com/forms/d/e/1FAIpQLSeTY3Sn-47KTwDpibxsd7QHx3hd7WFsWUHWkIoDzzLjcrXdfQ/formResponse",FB_ENTRY="entry.2139031577";
+document.getElementById('fb').addEventListener('submit',async e=>{e.preventDefault();const t=document.getElementById('fbtext'),m=document.getElementById('fbmsg'),b=e.target.querySelector('button');const text=t.value.trim();if(!text)return;
+  b.disabled=true;m.textContent='Sending…';
+  const body=new URLSearchParams();body.set(FB_ENTRY,text+"\n\n[page: "+(location.hash||'#home')+"]");
+  try{await fetch(FB_URL,{method:'POST',mode:'no-cors',body});t.value='';m.textContent='Thank you! We read every message.'}
+  catch(err){m.innerHTML='Could not send. <a href="https://forms.gle/CZgRvQGB4i42iSHL8" target="_blank" rel="noopener">Send it here instead</a>.'}
+  b.disabled=false;});
 window.addEventListener('hashchange',route);
 document.getElementById('menubtn').addEventListener('click',()=>{const n=document.querySelector('nav.top');const o=n.classList.toggle('open');document.getElementById('menubtn').setAttribute('aria-expanded',o)});
 route();
