@@ -1,0 +1,5 @@
+# One slug per line. Use this for cards that intentionally have no photograph.
+# Banarasidas previously received a confidently wrong portrait, so he stays manual.
+banarasidas
+# The exact Wikipedia page has no reusable lead image; use a reviewed contextual photo manually.
+maruti

@@ -1,0 +1,68 @@
+name: Wikimedia photo bot
+
+on:
+  push:
+    branches: [main]
+    paths: [index.html]
+  workflow_dispatch:
+    inputs:
+      scan_all:
+        description: Scan every card that does not currently have a photo
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: wikimedia-photo-bot
+  cancel-in-progress: false
+
+jobs:
+  propose-photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Find safely licensed photos
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          SCAN_ALL: ${{ inputs.scan_all }}
+        run: |
+          if [[ "$EVENT_NAME" == "workflow_dispatch" && "$SCAN_ALL" == "true" ]]; then
+            python tools/add_wikimedia_photos.py --all --report photo-bot-report.md
+          else
+            python tools/add_wikimedia_photos.py --base "$BEFORE_SHA" --report photo-bot-report.md
+          fi
+          cat photo-bot-report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Check for a proposal
+        id: proposal
+        run: |
+          if git diff --quiet -- photo-catalog.js links.txt sw.js; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Open review pull request
+        if: steps.proposal.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: photo-bot/run-${{ github.run_id }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -c "$BRANCH"
+          git add photo-catalog.js links.txt sw.js
+          git commit -m "Add licensed photos for new inspiration cards"
+          git push origin "$BRANCH"
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "Add licensed photos for new inspiration cards" \
+            --body-file photo-bot-report.md

@@ -1,4 +1,4 @@
-const V='insp-v30';
+const V='insp-v31';
 const CORE=['./','index.html','photo-catalog.js','manifest.webmanifest','icon-192.png','icon-512.png','apple-touch-icon.png','d3.min.js','topojson-client.min.js',
   'assets/photos/vivekananda-portrait.webp','assets/photos/curie-portrait.webp','assets/photos/kalam-portrait.webp','assets/photos/goodall-portrait.webp',
   'assets/photos/mandela-portrait.webp','assets/photos/ms-subbulakshmi-portrait.webp','assets/photos/katherine-johnson-portrait.webp','assets/photos/herr-portrait.webp',
