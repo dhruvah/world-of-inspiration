@@ -1,0 +1,10 @@
+const fs=require('fs');let code=fs.readFileSync(process.argv[3]||'/tmp/site-script.js','utf8');
+const el={innerHTML:'',insertAdjacentHTML(){},querySelector:()=>null,querySelectorAll:()=>[],addEventListener(){},setAttribute(){}};
+global.document={addEventListener(){},querySelector:()=>null,getElementById:()=>el,title:''};global.window={addEventListener(){},scrollTo(){}};global.location={hash:''};global.localStorage={getItem:()=>null,setItem(){}};global.history={replaceState(){}};global.sessionStorage={getItem:()=>null,setItem(){}};
+code=code.replace(/route\(\);\s*$/,'')+';module.exports={people,SHORT,VIDEOS};';const tmp=require('os').tmpdir()+'/a4.js';fs.writeFileSync(tmp,code);
+const {people,SHORT,VIDEOS}=require(tmp);const set=new Set();
+people.forEach(p=>{(p.links||[]).forEach(l=>set.add(l[2]));(p.books||[]).forEach(b=>Array.isArray(b)&&set.add(b[1]))});
+Object.values(SHORT).flat().forEach(l=>set.add(l[2]));Object.values(VIDEOS).flat().forEach(l=>set.add(l[2]));
+const html=fs.readFileSync(require('path').join(__dirname,'..','index.html'),'utf8');(html.match(/https?:\/\/[^\s"'`<>\\]+/g)||[]).forEach(u=>{if(u.includes('${'))return;u=u.replace(/[.,;]+$/,'');while(u.endsWith(')')&&(u.split('(').length<u.split(')').length))u=u.slice(0,-1);u=u.replace(/[.,;]+$/,'');set.add(u)});
+const out=[...set].filter(u=>/^https?:/.test(u)&&!/fonts\.g|cdn\.jsdelivr|openlibrary\.org\/search/.test(u)&&u!=='https://en.wikipedia.org/wiki/').sort();
+fs.writeFileSync(process.argv[2]||'links.txt',out.join('\n')+'\n');console.log(out.length,'links');
