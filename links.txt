@@ -474,7 +474,6 @@ https://rightlivelihood.org/?p=2676
 https://rmaward.asia/?p=2876
 https://rmaward.asia/rmawardees/amte-murlidhar-devidas/
 https://rmaward.asia/rmawardees/hande-harish/
-https://robotics.usc.edu/~maja/bio.html
 https://rotary.org/en/history-rotary-polio-eradication-efforts
 https://sacred-texts.com/jai/sbe22/sbe2201.htm
 https://science.nasa.gov/people/katherine-johnson
@@ -493,6 +492,7 @@ https://terryfox.org/terrys-story/
 https://thediplomat.com/2018/12/indias-miracle-train-a-journey-like-none-other
 https://vangoghletters.org
 https://viktorfrankl.org/standard_vitae.html
+https://viterbi.usc.edu/directory/faculty/Mataric/Maja
 https://wck.org/news/haiti-roots/
 https://whc.unesco.org/en/list/250
 https://www.akshayapatra.org/history
@@ -709,7 +709,6 @@ https://www.kirloskarlimitless.com/about/our-legacy
 https://www.kyotoprize.org/en/workshop/takeo-kanade/
 https://www.lean.org/lexicon-terms/toyota-production-system/
 https://www.legacy.com/news/yuan-longping-1930-2021-created-hybrid-rice-to-ease-famine
-https://www.mackenziescott.com/
 https://www.media.mit.edu/people/hherr/overview/
 https://www.mkgandhi.org/associates/gdbirla-the-natinalist-businessman.php
 https://www.mondragon-corporation.com/en/history/
@@ -756,7 +755,7 @@ https://www.npr.org/1997/09/03/1038446/frankl-obit
 https://www.nps.gov/edis/forkids/timeline-of-edison-and-his-inventions.htm
 https://www.nps.gov/gwca/index.htm
 https://www.olympics.com/ioc/pierre-de-coubertin
-https://www.patagonia.ca/ownership
+https://www.patagonia.com/ownership/
 https://www.perkins.org/anne-sullivan/
 https://www.pixar.com/our-story
 https://www.ramusa.org/
@@ -795,6 +794,7 @@ https://www.youtube.com/@srmd
 https://www.youtube.com/@srmd/search?query=Raj%20Katha
 https://www.youtube.com/playlist?list=PLuCukL6BJnFhfsrYnpKNWK3T2rvbdcVyz
 https://www.youtube.com/watch?v=51z7WRDjOjM
+https://yieldgiving.com/
 https://youtu.be/8Cp1bDsXCrU
 https://youtu.be/_mXVmGr2TCw
 https://yssofindia.org/about/lahiri-mahasaya
