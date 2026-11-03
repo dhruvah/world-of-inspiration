@@ -1,0 +1,9 @@
+name: Video info
+on:
+  workflow_dispatch:
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 tools/video_info.py tools/video_urls.txt
